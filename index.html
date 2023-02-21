@@ -90,6 +90,7 @@ header {
     display: flex;
     flex-flow: column nowrap;
     flex-direction:row-reverse;
+    text-align: right;
 }
 
 #donate-panel li {
@@ -101,7 +102,7 @@ header {
 #donate-panel a {
     display: block;
     width: 100%;
-    margin: auto;
+    padding-right: 5vh;
 }
 
 #donate-panel a:any-link {
@@ -124,7 +125,6 @@ header {
     #donate-panel ul {
         flex-flow: row nowrap;
         flex-direction:row-reverse;
-        justify-content: space-evenly;
         /*border-top: 1px solid var(--HEADER-COLOR);*/
     }
 
@@ -258,8 +258,8 @@ header {
 
 <div id="donate-panel">
   <ul>
-      <li><a href="#" id="donate">Donate</a></li>
       <li><a href="#" id="contact">Contact</a></li>
+      <li><a href="#" id="donate">Donate</a></li>
   </ul>
 </div>
 </div>
