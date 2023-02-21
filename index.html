@@ -14,7 +14,7 @@
 }
 
 :root {
-    --HEADER-BGCOLOR: rgba(0,0,0,0);
+    --HEADER-BGCOLOR: rgba(0,0,0,1);
     --HEADER-COLOR: navy;
     --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
@@ -67,13 +67,18 @@ header {
   color: transparent;
 }
 
+#page-header {
+  display: flex;
+  flex-direction:row-reverse;
+}
+
 #donate-panel {
     position: absolute;
     top: 0vh;
-    right: 7.32vh;
+    right: 8.5vh;
     width: 32%;
     height: 2.8vh;
-    text-align: center;
+    text-align: right;
 }
 
 #donate-panel ul {
@@ -94,8 +99,8 @@ header {
 
 #donate-panel a {
     display: block;
-    width: 50%;
-    margin: 0;
+    width: 100%;
+    margin: auto;
 }
 
 #donate-panel a:any-link {
@@ -130,7 +135,7 @@ header {
     }
 }
 
-.page-header {
+.lang-header {
   font-size: 1.5vh;
   text-align: center;
   position: absolute;
@@ -232,7 +237,9 @@ header {
 <section>
   <p><a href="#" class="clip">GamesForChildren</a></p>
 </section>
-<div class="page-header">
+
+<div id="page-header">
+<div class="lang-header">
 <select class="custom-select">
             <option value="de" data-thumbnail="img/DE.png">DE</option>
             <option value="en" data-thumbnail="img/GB.png">EN</option>
@@ -252,6 +259,7 @@ header {
       <li><a href="#" id="donate">Donate</a></li>
       <li><a href="#" id="contact">Contact</a></li>
   </ul>
+</div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
