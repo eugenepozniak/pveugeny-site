@@ -265,15 +265,46 @@ header {
 .text {
   position: relative;
   display:block;
-  height: 38vh;
+  min-height: 38vh;
+  padding-right: 1%;
   padding-left: 1%;
   width: calc(100% - 38vh);
   font-size: 3.6vh;
   font-family: 'Chalkduster', sans-serif;
   float:left;
-  /*overflow: hidden;
-  white-space: normal;
-  word-break: break-all;*/
+  overflow: hidden;
+}
+
+.links-header {
+  position: relative;
+  height: 5.9vh;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  background-color: rgb(239,239,239);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1%;
+  font-size: 3.6vh;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+}
+
+.links {
+  background-color: white;
+}
+
+.links-images {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.links-images img {
+  height: 12vh;
+  cursor: pointer;
+  left:50%;
 }
 
 .herunterladen {border-bottom: inherit;}  
@@ -319,43 +350,10 @@ header {
 </div>
 
 <div class="new">
-<a class="herunterladen" href="wordsgame.html">
 <div class="header"></div>
 <img class="image" src="img/WordsGame.png">
 <div class="text"></div>
-</a>
-</div>
-
-<div class="new">
-<a class="herunterladen" href="imagesgame.html">
-<div class="header"></div>
-<img class="image" src="img/GameImages.png">
-<div class="text"></div>
-</a>
-</div>
-
-<div class="new">
-<a class="herunterladen" href="wordsgame_christmas.html">
-<div class="header"></div>
-<img class="image" src="img/wordsgame_christmas.png">
-<div class="text"></div>
-</a>
-</div>
-
-<div class="new">
-<a class="herunterladen" href="memeri.html">
-<div class="header"></div>
-<img class="image" src="img/memeri.png">
-<div class="text"></div>
-</a>
-</div>
-
-<div class="new">
-<a class="herunterladen" href="archeology.html">
-<div class="header"></div>
-<img class="image" src="img/archeology.png">
-<div class="text"></div>
-</a>
+<div class="links"></div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -367,63 +365,21 @@ var dict = new Object();
 dict["de"] = {};
 dict["de"]["donate"] = "Spenden";
 dict["de"]["contact"] = "Kontaktieren";
-dict["de"]["mehr"] = "mehr";
 dict["en"] = {};
 dict["en"]["donate"] = "Donate";
 dict["en"]["contact"] = "Contact";
-dict["en"]["mehr"] = "more";
 dict["ua"] = {};
 dict["ua"]["donate"] = "Пожертвувати";
 dict["ua"]["contact"] = "Зв'язатися";
-dict["ua"]["mehr"] = "більше";
-dict["de"]["games"] = new Array(12);
-dict["en"]["games"] = new Array(12);
-dict["ua"]["games"] = new Array(12);
-dict["de"]["games"][0] = {};
-dict["de"]["games"][0]["title"] = "Wörter spiel";
-dict["de"]["games"][0]["text"] = "Durch 4 bilder auf der Folie definieren Sie das Wort - die zeichen werden darunter in der zufälligen ordnen angezeigt";
-dict["en"]["games"][0] = {};
-dict["en"]["games"][0]["title"] = "Words game";
-dict["en"]["games"][0]["text"] = "By 4 pictures on the slide you shall define word - the letters of which are displayed beneath in the random order";
-dict["ua"]["games"][0] = {};
-dict["ua"]["games"][0]["title"] = "Гра у слова";
-dict["ua"]["games"][0]["text"] = "Необхідно по 4 картинкам на слайді визначити слово - букви якого виводитимуться внизу у рандомному порядку";
-dict["de"]["games"][1] = {};
-dict["de"]["games"][1]["title"] = "Bilder spiel";
-dict["de"]["games"][1]["text"] = "Aus die vier bilder (oder aufschriften) auf der Folie (durch die maustaste oder berührbildschirm) erwählen - einen das, welchen das unterscheiden sich aus anderen drei im inhalt.";
-dict["en"]["games"][1] = {};
-dict["en"]["games"][1]["title"] = "Images game";
-dict["en"]["games"][1]["text"] = "Choose from the four pictures (or inscriptions) on the slide (by mouse button or touch-sensitive screen) - that one, which differs from other three by meaning.";
-dict["ua"]["games"][1] = {};
-dict["ua"]["games"][1]["title"] = "Гра у картинки";
-dict["ua"]["games"][1]["text"] = "Необхідно по 4 картинкам (або надписам) на слайді вибрати (кнопкою миші або тачскріном) - той, який відрізняється від інших трьох за сенсом.";
-dict["de"]["games"][2] = {};
-dict["de"]["games"][2]["title"] = "Wörter spiel (Weihnahtsthema)";
-dict["de"]["games"][2]["text"] = "Das gleiche spiel als Erstens ist, aber um winter und weihnahsten thematik. Durch 4 bilder auf der Folie definieren Sie das Wort - die zeichen werden darunter in der zufälligen ordnen angezeigt";
-dict["en"]["games"][2] = {};
-dict["en"]["games"][2]["title"] = "Words game (christmas theme)";
-dict["en"]["games"][2]["text"] = "It is the same game, as the first one, but on winter and christmas tematics. By 4 pictures on the slide you shall define word - the letters of which are displayed beneath in the random order";
-dict["ua"]["games"][2] = {};
-dict["ua"]["games"][2]["title"] = "Гра у слова (різдвяна тематика)";
-dict["ua"]["games"][2]["text"] = "Та сама гра, що і перша, але на зимову та різдвяну тематику. Необхідно по 4 картинкам на слайді визначити слово - букви якого виводитимуться внизу у рандомному порядку";
-dict["de"]["games"][3] = {};
-dict["de"]["games"][3]["title"] = "Memeri";
-dict["de"]["games"][3]["text"] = "Wenn klicken auf die maustaste oder tippen im rechten und linken Seite des Displays, werden die entsprechenden Bilder geöffnet - sie müssen zu gedenken die Orte der Bilder. Gleichzeitig geöffnet werden können nur ein Bild in links und rechts. Wenn die beiden gleichen Bilder geöffnet sind - sie verschwinden werden.";
-dict["en"]["games"][3] = {};
-dict["en"]["games"][3]["title"] = "Memeri";
-dict["en"]["games"][3]["text"] = "By clicking mouse button or touch in the right and left side of the display, the corresponding images willbe opened - you shall remember the places of the pictures. Only one picture in left and right can be opened at the same time. If the the same pictures are opened in the both sides - they will disappear.";
-dict["ua"]["games"][3] = {};
-dict["ua"]["games"][3]["title"] = "Memeri";
-dict["ua"]["games"][3]["text"] = "При натисканні кнопки миші або тачскріну в правій та лівій частині дисплея, відкриватимуться відповідні зображення - необхідно запам'ятовувати місця розташування зображень. Одночасно можна відкрити лише одну картину зліва та праворуч. Якщо однакові зображення відкриваються з обох боків - вони зникатимуть";
-dict["de"]["games"][4] = {};
-dict["de"]["games"][4]["title"] = "Archäologie";
-dict["de"]["games"][4]["text"] = "das spiel über alt zivilisationen. Für jede Zivilisation sind - 4 Bilder verwandt. Bilder werden einer nach dem anderen angezeigt (wechseln durch - die maustaste, der cursor oder berührbildschirm). Bevor alle 4 bilder angezeigt werden - ist gewünscht dieses Land zu rufen. Wenn alle 4 bilder angezeigt werden, schweben die Maus oder tippen - eine Bildbeschreibung werden angezeigt sein. Und in neben schritt (durch --> die maustaste, der cursor oder tippen) - der Land name werdern angezeigt sein";
-dict["en"]["games"][4] = {};
-dict["en"]["games"][4]["title"] = "Archeology";
-dict["en"]["games"][4]["text"] = "the game about old civilizations. For every civilization related 4 pictures. Images are displayed one by one (by - the mouse button, the cursor or touch screen). Before all 4 pictures are displayed - guess what country is. If all 4 pictures are displayed, by hovering the mouse or tapping - the picture description (hint) will be displayed. And in next step (by --> mouse, the cursor or tapping) - the country name will be shown";
-dict["ua"]["games"][4] = {};
-dict["ua"]["games"][4]["title"] = "Археологія";
-dict["ua"]["games"][4]["text"] = "гра про древні цівілізації. Кожній цивілізації відповідатимуть по 4 картинки. Картинки виводитимуться по одній (перехід  - кнопкою миші, стрілками або тачскріном). Потрібно до відображеня всіх 4 картинок визначити що це за країна. Коли будуть виведені всі 4 картинки при наведенні на кожну з них виводитиметься підказка з описанням зображеного. На наступному кроці (при переході --> кнопкою миші, стрілками або тачскріном) - буде виведена назва країни";
+dict["de"]["links-header"] = "Herunterladen";
+dict["en"]["links-header"] = "Links";
+dict["ua"]["links-header"] = "Посилання";
+dict["de"]["title"] = "Wörter spiel";
+dict["de"]["text"] = "Durch 4 bilder auf der Folie definieren Sie das Wort - die zeichen werden darunter in der zufälligen ordnen angezeigt";
+dict["en"]["title"] = "Words game";
+dict["en"]["text"] = "By 4 pictures on the slide you shall define word - the letters of which are displayed beneath in the random order";
+dict["ua"]["title"] = "Гра у слова";
+dict["ua"]["text"] = "Необхідно по 4 картинкам на слайді визначити слово - букви якого виводитимуться внизу у рандомному порядку";
 var langArray = [];
 var langVal = [];
 $('.custom-select option').each(function(){
@@ -437,6 +393,18 @@ $('.custom-select option').each(function(){
 
 $('#a').html(langArray);
 
+var links = document.getElementsByClassName("links");
+for (var i = 0; i < links.length; i++) 
+{
+  links[i].innerHTML = "<div class='links-header'></div>"
+    + "<div class='links-images'>"
+    + "<img class='links-windows' src='img/windows.png'>"
+    + "<img class='links-mac' src='img/mac.png'>"
+    + "<img class='links-ios' src='img/ios.png'>" 
+    + "<img class='links-linux' src='img/linux.png'>"
+    + "<img class='links-android' src='img/android.png'>" 
+    + "</div>";
+}
 checkCookie();
 
 //change button stuff on click
@@ -479,16 +447,17 @@ function setCookie(cname, cvalue, exdays) {
 }
 
 function setLanguage(lang) {
-  //alert(dict[lang]["donate"]);
   currentlang = lang;
   document.getElementById("donate").innerHTML = dict[lang]["donate"];
   document.getElementById("contact").innerHTML = dict[lang]["contact"];
   var headers = document.getElementsByClassName("header");
   var texts = document.getElementsByClassName("text");
+  var linksheaders = document.getElementsByClassName("links-header");
   for (var i = 0; i < texts.length; i++) 
   {
-    headers[i].innerHTML = dict[lang]["games"][i]["title"];
-    texts[i].innerHTML = dict[lang]["games"][i]["text"];
+    headers[i].innerHTML = dict[lang]["title"];
+    texts[i].innerHTML = dict[lang]["text"];
+    linksheaders[i].innerHTML = dict[lang]["links-header"];
     if(lang != "ua") 
     {
       headers[i].style.fontFamily = "'Chalkduster', sans-serif";
@@ -499,7 +468,7 @@ function setLanguage(lang) {
       headers[i].style.fontFamily = "cursive";
       texts[i].style.fontFamily = "cursive";
     }
-    ellipsizeTextBox(texts[i], lang);
+    break;
   }
 }
 
@@ -566,42 +535,6 @@ function checkCookie() {
         a.dispatchEvent(e)
     }
 })(console);
-
-function ellipsizeTextBox(el, lang) {
-    var wordArray = el.innerHTML.split(' ');
-    while(el.scrollHeight > el.offsetHeight) {
-        wordArray.pop();
-        el.innerHTML = wordArray.join(' ') + '... <a href = "https://www.javatpoint.com/" class = "mtellipsis">' + dict[lang]["mehr"] + '</a>';
-     }
-}
-
-window.addEventListener('resize', function() {
-  if(currentlang == "") return;
-  var texts = document.getElementsByClassName("text");
-  for (var i = 0; i < texts.length; i++) 
-  {
-    texts[i].innerHTML = dict[currentlang]["games"][i]["text"];
-    ellipsizeTextBox(texts[i], currentlang);
-  }
-});
-
-function refreshellipsizes() {
-  if(currentlang == "") return;
-  var texts = document.getElementsByClassName("text");
-  for (var i = 0; i < texts.length; i++) 
-  {
-    texts[i].innerHTML = dict[currentlang]["games"][i]["text"];
-    ellipsizeTextBox(texts[i], currentlang);
-  }
-}
-
-window.addEventListener('resize', function() {
-  refreshellipsizes();
-});
-
-window.addEventListener('load', function() {
-  refreshellipsizes();
-});
 
 </script>
 
