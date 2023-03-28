@@ -352,7 +352,7 @@ header {
 
 <div class="new">
 <div class="header"></div>
-<img class="image" src="img/GameImages.png">
+<img class="image" src="img/jeopardy.png">
 <div class="text"></div>
 <div class="links"></div>
 </div>
@@ -375,12 +375,12 @@ dict["ua"]["contact"] = "Зв'язатися";
 dict["de"]["links-header"] = "Herunterladen";
 dict["en"]["links-header"] = "Links";
 dict["ua"]["links-header"] = "Посилання";
-dict["de"]["title"] = "Bilder spiel";
-dict["de"]["text"] = "Aus die vier bilder (oder aufschriften) auf der Folie (durch die maustaste oder berührbildschirm) erwählen - einen das, welchen das unterscheiden sich aus anderen drei im inhalt.";
-dict["en"]["title"] = "Images game";
-dict["en"]["text"] = "Choose from the four pictures (or inscriptions) on the slide (by mouse button or touch-sensitive screen) - that one, which differs from other three by meaning.";
-dict["ua"]["title"] = "Гра у картинки";
-dict["ua"]["text"] = "Необхідно по 4 картинкам (або надписам) на слайді вибрати (кнопкою миші або тачскріном) - той, який відрізняється від інших трьох за сенсом.";
+dict["de"]["title"] = "jeopardy";
+dict["de"]["text"] = "ersten - erwahlt 5 themas. Durch tippen im kartenen mit anzahl von punkte - wird das fragte geöffnet. Denn durch klicken im Escape-Taste oder maustaste, oder tippen in frei bereich - der frage wird schließen sein. Ob tippen in frage oder klicken im Rückgabe-Taste oder Space-Taste - wird die Antwort geöffnen sein";
+dict["en"]["title"] = "jeopardy";
+dict["en"]["text"] = "First - choose 5 themes. By tapping in the card with a number of points - the question will be opened. By clicking in the escape button or mouse button, or tapping in freely area - the question will be closed. Whether tapping in question or clicking in the return button or space button - the answers will opened";
+dict["ua"]["title"] = "jeopardy";
+dict["ua"]["text"] = "обираєте 5 тем. При кліканні на карточці з числом очок - відкриватиметься запитання. При натисканні Escape або кнопки миші, або на вільній області екрану тачскріном - запитання закриється. Якщо нажати Enter або пробіл, або нажати тачскріном на саме запитання  -  відкриється відповідь на запитання";
 var langArray = [];
 var langVal = [];
 $('.custom-select option').each(function(){
@@ -452,6 +452,7 @@ function setLanguage(lang) {
   document.getElementById("donate").innerHTML = dict[lang]["donate"];
   document.getElementById("contact").innerHTML = dict[lang]["contact"];
   var headers = document.getElementsByClassName("header");
+  var images = document.getElementsByClassName("image");
   var texts = document.getElementsByClassName("text");
   var linksheaders = document.getElementsByClassName("links-header");
   for (var i = 0; i < texts.length; i++) 
@@ -466,8 +467,12 @@ function setLanguage(lang) {
     }
     if(lang == "ua") 
     {
-      headers[i].style.fontFamily = "Tellural";
-      texts[i].style.fontFamily = "Tellural";
+      headers[i].style.fontFamily = "'Tellural', sans-serif";
+      texts[i].style.fontFamily = "'Tellural', sans-serif";
+    }
+    if(dict[lang]["img"] !== undefined)
+    {
+      images[i].src = dict[lang]["img"];
     }
     break;
   }

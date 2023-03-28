@@ -352,7 +352,7 @@ header {
 
 <div class="new">
 <div class="header"></div>
-<img class="image" src="img/GameImages.png">
+<img class="image" src="img/neuvorstandspiel.png">
 <div class="text"></div>
 <div class="links"></div>
 </div>
@@ -375,12 +375,12 @@ dict["ua"]["contact"] = "Зв'язатися";
 dict["de"]["links-header"] = "Herunterladen";
 dict["en"]["links-header"] = "Links";
 dict["ua"]["links-header"] = "Посилання";
-dict["de"]["title"] = "Bilder spiel";
-dict["de"]["text"] = "Aus die vier bilder (oder aufschriften) auf der Folie (durch die maustaste oder berührbildschirm) erwählen - einen das, welchen das unterscheiden sich aus anderen drei im inhalt.";
-dict["en"]["title"] = "Images game";
-dict["en"]["text"] = "Choose from the four pictures (or inscriptions) on the slide (by mouse button or touch-sensitive screen) - that one, which differs from other three by meaning.";
-dict["ua"]["title"] = "Гра у картинки";
-dict["ua"]["text"] = "Необхідно по 4 картинкам (або надписам) на слайді вибрати (кнопкою миші або тачскріном) - той, який відрізняється від інших трьох за сенсом.";
+dict["de"]["title"] = "NewBoardGame";
+dict["de"]["text"] = "das spiel ist über maulwurf bewegung im abgrund - es ist vorgesehen für des gedächtnis ausbildung; der ersten schritt ort im untenaus strich";
+dict["en"]["title"] = "NewBoardGame";
+dict["en"]["text"] = "this game is about undergroud talpa movement - it is intended for recall training; first step in bottom line";
+dict["ua"]["title"] = "NewBoardGame";
+dict["ua"]["text"] = "гра про пересування кроту - щоь рухатись далі треба пам'ятати маршрут; перший крок на нижн лінії";
 var langArray = [];
 var langVal = [];
 $('.custom-select option').each(function(){
@@ -452,6 +452,7 @@ function setLanguage(lang) {
   document.getElementById("donate").innerHTML = dict[lang]["donate"];
   document.getElementById("contact").innerHTML = dict[lang]["contact"];
   var headers = document.getElementsByClassName("header");
+  var images = document.getElementsByClassName("image");
   var texts = document.getElementsByClassName("text");
   var linksheaders = document.getElementsByClassName("links-header");
   for (var i = 0; i < texts.length; i++) 
@@ -468,6 +469,10 @@ function setLanguage(lang) {
     {
       headers[i].style.fontFamily = "Tellural";
       texts[i].style.fontFamily = "Tellural";
+    }
+    if(dict[lang]["img"] !== undefined)
+    {
+      images[i].src = dict[lang]["img"];
     }
     break;
   }
