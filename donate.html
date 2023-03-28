@@ -256,8 +256,12 @@ header {
 
 .button-value
 {
-  background-color:#0090a0
+  background-color:#0090a0;
+  border: 1px solid black;
+  margin-left: -1px;
 }
+
+.button-value:focus {outline:0;}
 
 input[type=number]::-webkit-inner-spin-button {
     opacity: 1
@@ -299,9 +303,9 @@ input[type=number]::-webkit-inner-spin-button {
 </div>
 
 <div class="values">
-  <button class="button-value" id="button-value1" onclick="donatevalue()">1$</button>
-  <button class="button-value" id="button-value2" onclick="donatevalue()">2$</button>
-  <button class="button-value" id="button-value5" onclick="donatevalue()">5$</button>
+  <button class="button-value" id="button-value1" onclick="donatevalue(this)">1$</button>
+  <button class="button-value" id="button-value2" onclick="donatevalue(this)">2$</button>
+  <button class="button-value" id="button-value5" onclick="donatevalue(this)">5$</button>
 </div> 
 
 <form action="https://www.paypal.com/donate" method="post" id="paypalform" target="_blank" style="height: 5vh;">
@@ -323,6 +327,14 @@ input[type=number]::-webkit-inner-spin-button {
   src="https://pay.google.com/gp/p/js/pay.js"
   onload="onGooglePayLoaded()"></script>
 <script type="text/javascript">
+function donatevalue(obj)
+{
+  var input = document.getElementById('amount_paypal');
+  if(obj.id == "button-value1") input.value = "1.00";
+  if(obj.id == "button-value2") input.value = "2.00";
+  if(obj.id == "button-value5") input.value = "5.00";
+}
+
 function paypaldonate()
 {
   var myform = document.getElementById('paypalform');
