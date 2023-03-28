@@ -352,7 +352,7 @@ header {
 
 <div class="new">
 <div class="header"></div>
-<img class="image" src="img/memeri.png">
+<img class="image" src="">
 <div class="text"></div>
 <div class="links"></div>
 </div>
@@ -375,12 +375,15 @@ dict["ua"]["contact"] = "Зв'язатися";
 dict["de"]["links-header"] = "Herunterladen";
 dict["en"]["links-header"] = "Links";
 dict["ua"]["links-header"] = "Посилання";
-dict["de"]["title"] = "Memeri";
-dict["de"]["text"] = "Wenn klicken auf die maustaste oder tippen im rechten und linken Seite des Displays, werden die entsprechenden Bilder geöffnet - sie müssen zu gedenken die Orte der Bilder. Gleichzeitig geöffnet werden können nur ein Bild in links und rechts. Wenn die beiden gleichen Bilder geöffnet sind - sie verschwinden werden.";
-dict["en"]["title"] = "Memeri";
-dict["en"]["text"] = "By clicking mouse button or touch in the right and left side of the display, the corresponding images willbe opened - you shall remember the places of the pictures. Only one picture in left and right can be opened at the same time. If the the same pictures are opened in the both sides - they will disappear.";
-dict["ua"]["title"] = "Memeri";
-dict["ua"]["text"] = "При натисканні кнопки миші або тачскріну в правій та лівій частині дисплея, відкриватимуться відповідні зображення - необхідно запам'ятовувати місця розташування зображень. Одночасно можна відкрити лише одну картину зліва та праворуч. Якщо однакові зображення відкриваються з обох боків - вони зникатимуть";
+dict["de"]["title"] = "Fillwords (teil I)";
+dict["de"]["text"] = "das spiel ist ähnlich zu mehr populär die Kreuzwort-spiel aber ein buchstaben standorte schlangenartig sei ein nach ander, und füllung die all bestimmt bereich. Die buchstaben ausgewählt sei durch die maustaste oder tippen. Auch mit multi-touch (oder herauf/henab tasten) bildschirm kann zoomen sei. Wenn der ganze wort sei hervorheben ist - der verwandt bild wird gezeigt sein (welche beschreibt dieses Wort). <p> Die Themen von der ersten teil sind: Herbst, Ernte, Wandervögel und Winter";
+dict["de"]["img"] = "img/fillwords_de_I.png";
+dict["en"]["title"] = "Fillwords (part I)";
+dict["en"]["text"] = "The game is similar to more popular the crossword game, but the letters locations are a snake-like one after another, and filling all determined area. The letters are selected by the mouse button or tap. Also with a multi-touch (or up/down button) screen can be zoomed. If the whole word is highlighted - the related picture will be shown (that describes this word). <p> The topics of the first part are: Autumn, Harvest, Migratory birds and Winter";
+dict["en"]["img"] = "img/fillwords_en_I.png";
+dict["ua"]["title"] = "Fillwords (частина I)";
+dict["ua"]["text"] = "дана гра схожа на більш популярну гру в кросворди, але тут букви розташовуються змійкою одна за одною, заповнюючи всю визначену площу. Букви вибираються кнопкою миші або тачскріном. Також з доп мультитачу (або кнопкою вгору/вниз) можна збільшити екран ... Коли все слово буде виділено - пов’язана картина буде показана (яка описує це слово). <p> Теми першої частини: Осінь, Врожай, Перелітні птахи й Зима";
+dict["ua"]["img"] = "img/fillwords_ua_I.png";
 var langArray = [];
 var langVal = [];
 $('.custom-select option').each(function(){
@@ -452,6 +455,7 @@ function setLanguage(lang) {
   document.getElementById("donate").innerHTML = dict[lang]["donate"];
   document.getElementById("contact").innerHTML = dict[lang]["contact"];
   var headers = document.getElementsByClassName("header");
+  var images = document.getElementsByClassName("image");
   var texts = document.getElementsByClassName("text");
   var linksheaders = document.getElementsByClassName("links-header");
   for (var i = 0; i < texts.length; i++) 
@@ -468,6 +472,10 @@ function setLanguage(lang) {
     {
       headers[i].style.fontFamily = "Tellural";
       texts[i].style.fontFamily = "Tellural";
+    }
+    if(dict[lang]["img"] !== undefined)
+    {
+      images[i].src = dict[lang]["img"];
     }
     break;
   }

@@ -235,89 +235,35 @@ header {
   margin-left: 0px;
 }
 
-.new {
-  background-color: white;
-  margin-top: 3.8%;
-  margin-left: 2.8%;
-  margin-right: 2.8%;
-  border-style: solid;
-  border-width: 1.20px;
+.head
+{
+  width: 50%; 
+  margin-top: 1.85%;
+  margin-bottom: 0.95%;
 }
 
-.image {
-  display: inline-block;
-  height: 38vh;
-  width: 38vh;
-  float:left;
-}
-
-.header {
-  height: 8.5vh;
-  border-bottom: inherit;
-  background-color: rgb(239,239,239);
-  display: flex;
-  align-items: flex-end;
-  padding-left: 1%;
-  font-size: 3.8vh;
-  font-family: 'Chalkduster', sans-serif;
-  font-weight: bold;
-}
-
-.text {
-  position: relative;
-  display:block;
-  min-height: 38vh;
-  padding-right: 1%;
-  padding-left: 1%;
-  width: calc(100% - 38vh);
+.text 
+{
   font-size: 3.6vh;
   font-family: 'Chalkduster', sans-serif;
-  float:left;
-  overflow: hidden;
+  width: 99%;
+  margin-left: 0.5%;
 }
 
-.links-header {
-  position: relative;
-  height: 5.9vh;
-  border-top: 1px solid;
-  border-bottom: 1px solid;
-  background-color: rgb(239,239,239);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-left: 1%;
-  font-size: 3.6vh;
-  font-family: 'Arial', sans-serif;
-  font-weight: bold;
+.email-link {
+    display: flex;
+    align-items: center;
+    padding: 0.5vw 0.5vh;
+    margin-left: 0px;
+    font-size: 2.8vh;
+    font-family: 'Tellural', sans-serif;
+    width: 12.8vw;
 }
 
-.links {
-  background-color: white;
+.mailto-value {
+    margin-top: 10%;
+    margin-left: 5%;
 }
-
-.links-images {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.links-images img {
-  height: 12vh;
-  cursor: pointer;
-  left:50%;
-}
-
-.herunterladen {border-bottom: inherit;}  
-.herunterladen:link {color: black;}  
-.herunterladen:visited {color: black;}  
-.herunterladen:hover {color: black;}  
-.herunterladen:active {color: black;}
-
-/*.mtellipsis:link {color: lightblue;}  
-.mtellipsis:visited {color: #060235}  
-.mtellipsis:hover {color: #FCFC0C}  
-.mtellipsis:active {color: #C0F0FC}*/
 
 </style>
 </head>
@@ -344,18 +290,17 @@ header {
 
 <div id="donate-panel">
   <ul>
-      <li><a href="#" id="contact">Contact</a></li>
-      <li><a href="#" id="donate">Donate</a></li>
+      <li><a href="contact.html" id="contact">Contact</a></li>
+      <li><a href="donate.html" id="donate">Donate</a></li>
   </ul>
 </div>
 </div>
 
-<div class="new">
-<div class="header"></div>
-<img class="image" src="img/memeri.png">
+<div class="head">
 <div class="text"></div>
-<div class="links"></div>
 </div>
+
+<div><a href="mailto:Eugene%20Pozniak%20%3cpveugeny@gmail.com%3e?subject=nonentertainmentgames" class="email-link"><img src="img/gmail-icon.svg" style="width:2.8vw;height:2.8vh;"> <p class="mailto-value" title="Eugene Pozniak">pveugeny@gmail.com</p></a></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
@@ -366,21 +311,15 @@ var dict = new Object();
 dict["de"] = {};
 dict["de"]["donate"] = "Spenden";
 dict["de"]["contact"] = "Kontaktieren";
+dict["de"]["text"] = "Dieses werk ist 95-97% indy. Etwas bilde und meisten anfang ideen zu spiele vorgeschlagen an andere leute. Hier ist e-mail, zu kontaktieren um mich, ob irgendeinen fragte";
 dict["en"] = {};
 dict["en"]["donate"] = "Donate";
 dict["en"]["contact"] = "Contact";
+dict["en"]["text"] = "This work is 95-97% indy. Some pictures and most of the beginning ideas for games suggested by other people. Here's email to contact me";
 dict["ua"] = {};
 dict["ua"]["donate"] = "Пожертвувати";
 dict["ua"]["contact"] = "Зв'язатися";
-dict["de"]["links-header"] = "Herunterladen";
-dict["en"]["links-header"] = "Links";
-dict["ua"]["links-header"] = "Посилання";
-dict["de"]["title"] = "Memeri";
-dict["de"]["text"] = "Wenn klicken auf die maustaste oder tippen im rechten und linken Seite des Displays, werden die entsprechenden Bilder geöffnet - sie müssen zu gedenken die Orte der Bilder. Gleichzeitig geöffnet werden können nur ein Bild in links und rechts. Wenn die beiden gleichen Bilder geöffnet sind - sie verschwinden werden.";
-dict["en"]["title"] = "Memeri";
-dict["en"]["text"] = "By clicking mouse button or touch in the right and left side of the display, the corresponding images willbe opened - you shall remember the places of the pictures. Only one picture in left and right can be opened at the same time. If the the same pictures are opened in the both sides - they will disappear.";
-dict["ua"]["title"] = "Memeri";
-dict["ua"]["text"] = "При натисканні кнопки миші або тачскріну в правій та лівій частині дисплея, відкриватимуться відповідні зображення - необхідно запам'ятовувати місця розташування зображень. Одночасно можна відкрити лише одну картину зліва та праворуч. Якщо однакові зображення відкриваються з обох боків - вони зникатимуть";
+dict["ua"]["text"] = "Дані роботи - на 95-97% інді. Деякі фотографії та більшість початкових ідей для ігор запропоновані іншими людьми. Ось електронна пошта, щоб зв’язатися";
 var langArray = [];
 var langVal = [];
 $('.custom-select option').each(function(){
@@ -394,18 +333,6 @@ $('.custom-select option').each(function(){
 
 $('#a').html(langArray);
 
-var links = document.getElementsByClassName("links");
-for (var i = 0; i < links.length; i++) 
-{
-  links[i].innerHTML = "<div class='links-header'></div>"
-    + "<div class='links-images'>"
-    + "<img class='links-windows' src='img/windows.png'>"
-    + "<img class='links-mac' src='img/mac.png'>"
-    + "<img class='links-ios' src='img/ios.png'>" 
-    + "<img class='links-linux' src='img/linux.png'>"
-    + "<img class='links-android' src='img/android.png'>" 
-    + "</div>";
-}
 checkCookie();
 
 //change button stuff on click
@@ -448,28 +375,19 @@ function setCookie(cname, cvalue, exdays) {
 }
 
 function setLanguage(lang) {
+  //alert(dict[lang]["donate"]);
   currentlang = lang;
   document.getElementById("donate").innerHTML = dict[lang]["donate"];
   document.getElementById("contact").innerHTML = dict[lang]["contact"];
-  var headers = document.getElementsByClassName("header");
-  var texts = document.getElementsByClassName("text");
-  var linksheaders = document.getElementsByClassName("links-header");
-  for (var i = 0; i < texts.length; i++) 
+  var text = document.getElementsByClassName("text")[0];
+  text.innerHTML = dict[lang]["text"];
+  if(lang != "ua") 
   {
-    headers[i].innerHTML = dict[lang]["title"];
-    texts[i].innerHTML = dict[lang]["text"];
-    linksheaders[i].innerHTML = dict[lang]["links-header"];
-    if(lang != "ua") 
-    {
-      headers[i].style.fontFamily = "'Chalkduster', sans-serif";
-      texts[i].style.fontFamily = "'Chalkduster', sans-serif";
-    }
-    if(lang == "ua") 
-    {
-      headers[i].style.fontFamily = "Tellural";
-      texts[i].style.fontFamily = "Tellural";
-    }
-    break;
+    text.style.fontFamily = "'Chalkduster', sans-serif";
+  }
+  if(lang == "ua") 
+  {
+    text.style.fontFamily = "'Tellural', sans-serif";
   }
 }
 

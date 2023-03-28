@@ -6,6 +6,7 @@
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
 <style>
 @import url('https://fonts.cdnfonts.com/css/chalkduster');
+@import url('https://fonts.cdnfonts.com/css/tellural');
 
 * {
     margin: 0;
@@ -322,7 +323,7 @@ header {
 </head>
 <body>
 <section>
-  <p><a href="index.html" class="clip">GamesForChildren</a></p>
+  <p><a href="index.html" class="clip">PrudentGames</a></p>
 </section>
 
 <div id="page-header">
@@ -375,11 +376,11 @@ dict["de"]["links-header"] = "Herunterladen";
 dict["en"]["links-header"] = "Links";
 dict["ua"]["links-header"] = "Посилання";
 dict["de"]["title"] = "Wörter spiel (Weihnahtsthema)";
-dict["de"]["text"] = "Das gleiche spiel als Erstens ist, aber um winter und weihnahsten thematik. Durch 4 bilder auf der Folie definieren Sie das Wort - die zeichen werden darunter in der zufälligen ordnen angezeigt";
+dict["de"]["text"] = "Das gleiche spiel als Erstens ist, aber um winter und weihnahsten thematik. Durch bilde auf der Folie definieren Sie das Wort - die zeichen werden darunter in der zufälligen ordnen angezeigt";
 dict["en"]["title"] = "Words game (christmas theme)";
-dict["en"]["text"] = "It is the same game, as the first one, but on winter and christmas tematics. By 4 pictures on the slide you shall define word - the letters of which are displayed beneath in the random order";
+dict["en"]["text"] = "It is the same game, as the first one, but on winter and christmas tematics. By pictures on the slide you shall define word - the letters of which are displayed beneath in the random order";
 dict["ua"]["title"] = "Гра у слова (різдвяна тематика)";
-dict["ua"]["text"] = "Та сама гра, що і перша, але на зимову та різдвяну тематику. Необхідно по 4 картинкам на слайді визначити слово - букви якого виводитимуться внизу у рандомному порядку";
+dict["ua"]["text"] = "Та сама гра, що і перша, але на зимову та різдвяну тематику. Необхідно згідно картинок визначити слово - букви якого виводитимуться внизу у рандомному порядку";
 var langArray = [];
 var langVal = [];
 $('.custom-select option').each(function(){
@@ -465,8 +466,8 @@ function setLanguage(lang) {
     }
     if(lang == "ua") 
     {
-      headers[i].style.fontFamily = "var(--bs-font-sans-serif)";
-      texts[i].style.fontFamily = "var(--bs-font-sans-serif)";
+      headers[i].style.fontFamily = "Tellural";
+      texts[i].style.fontFamily = "Tellural";
     }
     break;
   }

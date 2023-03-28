@@ -6,6 +6,7 @@
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
 <style>
 @import url('https://fonts.cdnfonts.com/css/chalkduster');
+@import url('https://fonts.cdnfonts.com/css/tellural');
 
 * {
     margin: 0;
@@ -235,6 +236,7 @@ header {
 }
 
 .new {
+  display: none;
   background-color: white;
   margin-top: 3.8%;
   margin-left: 2.8%;
@@ -271,8 +273,8 @@ header {
   font-size: 3.6vh;
   font-family: 'Chalkduster', sans-serif;
   float:left;
-  /*overflow: hidden;
-  white-space: normal;
+  overflow: hidden;
+  /*white-space: normal;
   word-break: break-all;*/
 }
 
@@ -291,7 +293,7 @@ header {
 </head>
 <body>
 <section>
-  <p><a href="index.html" class="clip">GamesForChildren</a></p>
+  <p><a href="index.html" class="clip">PrudentGames</a></p>
 </section>
 
 <div id="page-header">
@@ -312,8 +314,8 @@ header {
 
 <div id="donate-panel">
   <ul>
-      <li><a href="#" id="contact">Contact</a></li>
-      <li><a href="#" id="donate">Donate</a></li>
+      <li><a href="contact.html" id="contact">Contact</a></li>
+      <li><a href="donate.html" id="donate">Donate</a></li>
   </ul>
 </div>
 </div>
@@ -358,6 +360,46 @@ header {
 </a>
 </div>
 
+<div class="new">
+<a class="herunterladen" href="fillwords_I.html">
+<div class="header"></div>
+<img class="image" src="">
+<div class="text"></div>
+</a>
+</div>
+
+<div class="new">
+<a class="herunterladen" href="fillwords_II.html">
+<div class="header"></div>
+<img class="image" src="">
+<div class="text"></div>
+</a>
+</div>
+
+<div class="new">
+<a class="herunterladen" href="fillwords.html">
+<div class="header"></div>
+<img class="image" src="">
+<div class="text"></div>
+</a>
+</div>
+
+<div class="new">
+<a class="herunterladen" href="">
+<div class="header"></div>
+<img class="image" src="img/neuvorstandspiel.png">
+<div class="text"></div>
+</a>
+</div>
+
+<div class="new">
+<a class="herunterladen" href="">
+<div class="header"></div>
+<img class="image" src="">
+<div class="text"></div>
+</a>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
 var currentlang = "";
@@ -381,13 +423,13 @@ dict["en"]["games"] = new Array(12);
 dict["ua"]["games"] = new Array(12);
 dict["de"]["games"][0] = {};
 dict["de"]["games"][0]["title"] = "Wörter spiel";
-dict["de"]["games"][0]["text"] = "Durch 4 bilder auf der Folie definieren Sie das Wort - die zeichen werden darunter in der zufälligen ordnen angezeigt";
+dict["de"]["games"][0]["text"] = "Durch 4 bilder auf der Folie definieren Sie das Wort - die zeichen werden darunter in der zufälligen ordnen angezeigt. Der wort gezeigten kann sein durch klicken oder tippen darauf";
 dict["en"]["games"][0] = {};
 dict["en"]["games"][0]["title"] = "Words game";
-dict["en"]["games"][0]["text"] = "By 4 pictures on the slide you shall define word - the letters of which are displayed beneath in the random order";
+dict["en"]["games"][0]["text"] = "By 4 pictures on the slide you shall define word - the letters of which are displayed beneath in the random order. The word can be shown by clicking or tapping on it";
 dict["ua"]["games"][0] = {};
 dict["ua"]["games"][0]["title"] = "Гра у слова";
-dict["ua"]["games"][0]["text"] = "Необхідно по 4 картинкам на слайді визначити слово - букви якого виводитимуться внизу у рандомному порядку";
+dict["ua"]["games"][0]["text"] = "Необхідно по 4 картинкам на слайді визначити слово - букви якого виводитимуться внизу у рандомному порядку. Слово можна показати, клікнувши на ньому";
 dict["de"]["games"][1] = {};
 dict["de"]["games"][1]["title"] = "Bilder spiel";
 dict["de"]["games"][1]["text"] = "Aus die vier bilder (oder aufschriften) auf der Folie (durch die maustaste oder berührbildschirm) erwählen - einen das, welchen das unterscheiden sich aus anderen drei im inhalt.";
@@ -397,15 +439,12 @@ dict["en"]["games"][1]["text"] = "Choose from the four pictures (or inscriptions
 dict["ua"]["games"][1] = {};
 dict["ua"]["games"][1]["title"] = "Гра у картинки";
 dict["ua"]["games"][1]["text"] = "Необхідно по 4 картинкам (або надписам) на слайді вибрати (кнопкою миші або тачскріном) - той, який відрізняється від інших трьох за сенсом.";
-dict["de"]["games"][2] = {};
 dict["de"]["games"][2]["title"] = "Wörter spiel (Weihnahtsthema)";
-dict["de"]["games"][2]["text"] = "Das gleiche spiel als Erstens ist, aber um winter und weihnahsten thematik. Durch 4 bilder auf der Folie definieren Sie das Wort - die zeichen werden darunter in der zufälligen ordnen angezeigt";
-dict["en"]["games"][2] = {};
+dict["de"]["games"][2]["text"] = "Das gleiche spiel als Erstens ist, aber um winter und weihnahsten thematik. Durch bilde auf der Folie definieren Sie das Wort - die zeichen werden darunter in der zufälligen ordnen angezeigt";
 dict["en"]["games"][2]["title"] = "Words game (christmas theme)";
-dict["en"]["games"][2]["text"] = "It is the same game, as the first one, but on winter and christmas tematics. By 4 pictures on the slide you shall define word - the letters of which are displayed beneath in the random order";
-dict["ua"]["games"][2] = {};
+dict["en"]["games"][2]["text"] = "It is the same game, as the first one, but on winter and christmas tematics. By pictures on the slide you shall define word - the letters of which are displayed beneath in the random order";
 dict["ua"]["games"][2]["title"] = "Гра у слова (різдвяна тематика)";
-dict["ua"]["games"][2]["text"] = "Та сама гра, що і перша, але на зимову та різдвяну тематику. Необхідно по 4 картинкам на слайді визначити слово - букви якого виводитимуться внизу у рандомному порядку";
+dict["ua"]["games"][2]["text"] = "Та сама гра, що і перша, але на зимову та різдвяну тематику. Необхідно згідно картинок визначити слово - букви якого виводитимуться внизу у рандомному порядку";
 dict["de"]["games"][3] = {};
 dict["de"]["games"][3]["title"] = "Memeri";
 dict["de"]["games"][3]["text"] = "Wenn klicken auf die maustaste oder tippen im rechten und linken Seite des Displays, werden die entsprechenden Bilder geöffnet - sie müssen zu gedenken die Orte der Bilder. Gleichzeitig geöffnet werden können nur ein Bild in links und rechts. Wenn die beiden gleichen Bilder geöffnet sind - sie verschwinden werden.";
@@ -424,6 +463,58 @@ dict["en"]["games"][4]["text"] = "the game about old civilizations. For every ci
 dict["ua"]["games"][4] = {};
 dict["ua"]["games"][4]["title"] = "Археологія";
 dict["ua"]["games"][4]["text"] = "гра про древні цівілізації. Кожній цивілізації відповідатимуть по 4 картинки. Картинки виводитимуться по одній (перехід  - кнопкою миші, стрілками або тачскріном). Потрібно до відображеня всіх 4 картинок визначити що це за країна. Коли будуть виведені всі 4 картинки при наведенні на кожну з них виводитиметься підказка з описанням зображеного. На наступному кроці (при переході --> кнопкою миші, стрілками або тачскріном) - буде виведена назва країни";
+dict["de"]["games"][5] = {};
+dict["de"]["games"][5]["title"] = "Fillwords (teil I)";
+dict["de"]["games"][5]["text"] = "das spiel ist ähnlich zu mehr populär die Kreuzwort-spiel aber ein buchstaben standorte schlangenartig sei ein nach ander, und füllung die all bestimmt bereich. Die buchstaben ausgewählt sei durch die maustaste oder tippen. Auch mit multi-touch (oder herauf/henab tasten) bildschirm kann zoomen sei. Wenn der ganze wort sei hervorheben ist - der verwandt bild wird gezeigt sein (welche beschreibt dieses Wort). <p> Die Themen von der ersten teil sind: Herbst, Ernte, Wandervögel und Winter";
+dict["de"]["games"][5]["img"] = "img/fillwords_de_I.png";
+dict["en"]["games"][5] = {};
+dict["en"]["games"][5]["title"] = "Fillwords (part I)";
+dict["en"]["games"][5]["text"] = "The game is similar to more popular the crossword game, but the letters locations are a snake-like one after another, and filling all determined area. The letters are selected by the mouse button or tap. Also with a multi-touch (or up/down button) screen can be zoomed. If the whole word is highlighted - the related picture will be shown (that describes this word). <p> The topics of the first part are: Autumn, Harvest, Migratory birds and Winter";
+dict["en"]["games"][5]["img"] = "img/fillwords_en_I.png";
+dict["ua"]["games"][5] = {};
+dict["ua"]["games"][5]["title"] = "Fillwords (частина I)";
+dict["ua"]["games"][5]["text"] = "дана гра схожа на більш популярну гру в кросворди, але тут букви розташовуються змійкою одна за одною, заповнюючи всю визначену площу. Букви вибираються кнопкою миші або тачскріном. Також з доп мультитачу (або кнопкою вгору/вниз) можна збільшити екран ... Коли все слово буде виділено - пов’язана картина буде показана (яка описує це слово). <p> Теми першої частини: Осінь, Врожай, Перелітні птахи й Зима";
+dict["ua"]["games"][5]["img"] = "img/fillwords_ua_I.png";
+dict["de"]["games"][6] = {};
+dict["de"]["games"][6]["title"] = "Fillwords (teil II)";
+dict["de"]["games"][6]["text"] = "das spiel ist ähnlich zu mehr populär die Kreuzwort-spiel aber ein buchstaben standorte schlangenartig sei ein nach ander, und füllung die all bestimmt bereich. Die buchstaben ausgewählt sei durch die maustaste oder tippen. Auch mit multi-touch (oder herauf/henab tasten) bildschirm kann zoomen sei. Wenn der ganze wort sei hervorheben ist - der verwandt bild wird gezeigt sein (welche beschreibt dieses Wort). <p> Die Themen von der zweite teil sind: Meerestiere, Chemische Elemente, Ostern und Weihnahtsthema";
+dict["de"]["games"][6]["img"] = "img/fillwords_de_II.png";
+dict["en"]["games"][6] = {};
+dict["en"]["games"][6]["title"] = "Fillwords (part II)";
+dict["en"]["games"][6]["text"] = "The game is similar to more popular the crossword game, but the letters locations are a snake-like one after another, and filling all determined area. The letters are selected by the mouse button or tap. Also with a multi-touch (or up/down button) screen can be zoomed. If the whole word is highlighted - the related picture will be shown (that describes this word). <p> The topics of the second part are: Sea Animals, Chemical Elements, Easter and Christmas theme";
+dict["en"]["games"][6]["img"] = "img/fillwords_en_II.png";
+dict["ua"]["games"][6] = {};
+dict["ua"]["games"][6]["title"] = "Fillwords (частина II)";
+dict["ua"]["games"][6]["text"] = "дана гра схожа на більш популярну гру в кросворди, але тут букви розташовуються змійкою одна за одною, заповнюючи всю визначену площу. Букви вибираються кнопкою миші або тачскріном. Також з доп мультитачу (або кнопкою вгору/вниз) можна збільшити екран ... Коли все слово буде виділено - пов’язана картина буде показана (яка описує це слово). <p> Теми другої частини: Морські тварини, Хімічні елементи, Великдень та Різдвяна тема";
+dict["ua"]["games"][6]["img"] = "img/fillwords_ua_II.png";
+dict["de"]["games"][7] = {};
+dict["de"]["games"][7]["title"] = "";
+dict["de"]["games"][7]["text"] = "";
+dict["en"]["games"][7] = {};
+dict["en"]["games"][7]["title"] = "";
+dict["en"]["games"][7]["text"] = "";
+dict["ua"]["games"][7] = {};
+dict["ua"]["games"][7]["title"] = "Fillwords";
+dict["ua"]["games"][7]["text"] = "1 коринтянам 15:41";
+dict["ua"]["games"][7]["img"] = "img/fillwords.png";
+dict["de"]["games"][8] = {};
+dict["de"]["games"][8]["title"] = "NewBoardGame";
+dict["de"]["games"][8]["text"] = "das spiel ist über maulwurf bewegung im abgrund - es ist vorgesehen für des gedächtnis ausbildung; der ersten schritt ort im untenaus strich";
+dict["en"]["games"][8] = {};
+dict["en"]["games"][8]["title"] = "NewBoardGame";
+dict["en"]["games"][8]["text"] = "this game is about undergroud talpa movement - it is intended for recall training; first step in bottom line";
+dict["ua"]["games"][8] = {};
+dict["ua"]["games"][8]["title"] = "NewBoardGame";
+dict["ua"]["games"][8]["text"] = "гра про пересування кроту - щоь рухатись далі треба пам'ятати маршрут; перший крок на нижн лінії";
+dict["de"]["games"][9] = {};
+dict["de"]["games"][9]["title"] = "jeopardy";
+dict["de"]["games"][9]["text"] = "ersten - erwahlt 5 themas. Durch tippen im kartenen mit anzahl von punkte - wird das fragte geöffnet. Denn durch klicken im Escape-Taste oder maustaste, oder tippen in frei bereich - der frage wird schließen sein. Ob tippen in frage oder klicken im Rückgabe-Taste oder Space-Taste - wird die Antwort geöffnen sein";
+dict["en"]["games"][9] = {};
+dict["en"]["games"][9]["title"] = "jeopardy";
+dict["en"]["games"][9]["text"] = "First - choose 5 themes. By tapping in the card with a number of points - the question will be opened. By clicking in the escape button or mouse button, or tapping in freely area - the question will be closed. Whether tapping in question or clicking in the return button or space button - the answers will opened";
+dict["ua"]["games"][9] = {};
+dict["ua"]["games"][9]["title"] = "jeopardy";
+dict["ua"]["games"][9]["text"] = "обираєте 5 тем. При кліканні на карточці з числом очок - відкриватиметься запитання. При натисканні Escape або кнопки миші, або на вільній області екрану тачскріном - запитання закриється. Якщо нажати Enter або пробіл, або нажати тачскріном на саме запитання  -  відкриється відповідь на запитання";
 var langArray = [];
 var langVal = [];
 $('.custom-select option').each(function(){
@@ -483,10 +574,14 @@ function setLanguage(lang) {
   currentlang = lang;
   document.getElementById("donate").innerHTML = dict[lang]["donate"];
   document.getElementById("contact").innerHTML = dict[lang]["contact"];
+  var neu = document.getElementsByClassName("new");
   var headers = document.getElementsByClassName("header");
   var texts = document.getElementsByClassName("text");
+  var images = document.getElementsByClassName("image");
   for (var i = 0; i < texts.length; i++) 
   {
+    if(dict[lang]["games"][i]["title"] === "") { neu[i].style.display = "none"; continue; }
+    neu[i].style.display = "block";
     headers[i].innerHTML = dict[lang]["games"][i]["title"];
     texts[i].innerHTML = dict[lang]["games"][i]["text"];
     if(lang != "ua") 
@@ -496,10 +591,14 @@ function setLanguage(lang) {
     }
     if(lang == "ua") 
     {
-      headers[i].style.fontFamily = "var(--bs-font-sans-serif)";
-      texts[i].style.fontFamily = "var(--bs-font-sans-serif)";
+      headers[i].style.fontFamily = "'Tellural', sans-serif";
+      texts[i].style.fontFamily = "'Tellural', sans-serif";
     }
     ellipsizeTextBox(texts[i], lang);
+    if(dict[lang]["games"][i]["img"] !== undefined)
+    {
+      images[i].src = dict[lang]["games"][i]["img"];
+    }
   }
 }
 
@@ -571,7 +670,7 @@ function ellipsizeTextBox(el, lang) {
     var wordArray = el.innerHTML.split(' ');
     while(el.scrollHeight > el.offsetHeight) {
         wordArray.pop();
-        el.innerHTML = wordArray.join(' ') + '... <a href = "https://www.javatpoint.com/" class = "mtellipsis">' + dict[lang]["mehr"] + '</a>';
+        el.innerHTML = wordArray.join(' ') + '...';
      }
 }
 

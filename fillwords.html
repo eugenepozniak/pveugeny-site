@@ -352,7 +352,7 @@ header {
 
 <div class="new">
 <div class="header"></div>
-<img class="image" src="img/memeri.png">
+<img class="image" src="">
 <div class="text"></div>
 <div class="links"></div>
 </div>
@@ -375,12 +375,15 @@ dict["ua"]["contact"] = "Зв'язатися";
 dict["de"]["links-header"] = "Herunterladen";
 dict["en"]["links-header"] = "Links";
 dict["ua"]["links-header"] = "Посилання";
-dict["de"]["title"] = "Memeri";
-dict["de"]["text"] = "Wenn klicken auf die maustaste oder tippen im rechten und linken Seite des Displays, werden die entsprechenden Bilder geöffnet - sie müssen zu gedenken die Orte der Bilder. Gleichzeitig geöffnet werden können nur ein Bild in links und rechts. Wenn die beiden gleichen Bilder geöffnet sind - sie verschwinden werden.";
-dict["en"]["title"] = "Memeri";
-dict["en"]["text"] = "By clicking mouse button or touch in the right and left side of the display, the corresponding images willbe opened - you shall remember the places of the pictures. Only one picture in left and right can be opened at the same time. If the the same pictures are opened in the both sides - they will disappear.";
-dict["ua"]["title"] = "Memeri";
-dict["ua"]["text"] = "При натисканні кнопки миші або тачскріну в правій та лівій частині дисплея, відкриватимуться відповідні зображення - необхідно запам'ятовувати місця розташування зображень. Одночасно можна відкрити лише одну картину зліва та праворуч. Якщо однакові зображення відкриваються з обох боків - вони зникатимуть";
+dict["de"]["title"] = "Fillwords";
+dict["de"]["text"] = "";
+dict["de"]["img"] = "img/fillwords.png";
+dict["en"]["title"] = "Fillwords";
+dict["en"]["text"] = "";
+dict["en"]["img"] = "img/fillwords.png";
+dict["ua"]["title"] = "Fillwords";
+dict["ua"]["text"] = "1 коринтянам 15:41";
+dict["ua"]["img"] = "img/fillwords";
 var langArray = [];
 var langVal = [];
 $('.custom-select option').each(function(){
@@ -452,6 +455,7 @@ function setLanguage(lang) {
   document.getElementById("donate").innerHTML = dict[lang]["donate"];
   document.getElementById("contact").innerHTML = dict[lang]["contact"];
   var headers = document.getElementsByClassName("header");
+  var images = document.getElementsByClassName("image");
   var texts = document.getElementsByClassName("text");
   var linksheaders = document.getElementsByClassName("links-header");
   for (var i = 0; i < texts.length; i++) 
@@ -468,6 +472,10 @@ function setLanguage(lang) {
     {
       headers[i].style.fontFamily = "Tellural";
       texts[i].style.fontFamily = "Tellural";
+    }
+    if(dict[lang]["img"] !== undefined)
+    {
+      images[i].src = dict[lang]["img"];
     }
     break;
   }

@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+<style>
+@import url('https://fonts.cdnfonts.com/css/chalkduster');
+@import url('https://fonts.cdnfonts.com/css/tellural');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --HEADER-BGCOLOR: rgba(0,0,0,0);
+    --HEADER-COLOR: navy;
+    --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+html {
+  font-size: 2.8vh;
+  font-family: var(--bs-font-sans-serif);
+}
+
+body {
+    background-color: midnightblue;
+    background-image: linear-gradient(180deg, lightblue, white);
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+header {
+    color: var(--HEADER-COLOR);
+    position: sticky;
+    height: 2.8vh;
+    max-height: 2.8vh;
+    top: 0;
+    z-index: 1;
+}
+
+.clip {
+  font-family: "Goudy Bookletter 1911", sans-serif;
+  letter-spacing: 5px;
+  font-weight: 800;
+  font-size: 5vh;
+  text-align: top;
+  /*background: linear-gradient(135deg, orange 60%, cyan);*/
+  background-image: url("img/scenic-2200x1331.png");
+  background-size: 100%;
+  margin-top: 0.5vh;
+  margin-left: 1.2vh;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.clip:hover {
+  text-decoration: none;
+  color: transparent;
+}
+
+.clip:focus {
+  text-decoration: none;
+  color: transparent;
+}
+
+#page-header {
+  display: flex;
+  flex-direction:row-reverse;
+}
+
+#donate-panel {
+    position: absolute;
+    top: 0vh;
+    right: 8.5vh;
+    width: 43.2vh;
+    height: 2.8vh;
+    text-align: right;
+}
+
+#donate-panel ul {
+    background-color: var(--HEADER-BGCOLOR);
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    list-style-type: none;
+    display: flex;
+    flex-flow: column nowrap;
+    flex-direction:row-reverse;
+    text-align: right;
+}
+
+#donate-panel li {
+    position: relative;
+    padding: 1.66vh;
+    /*border-top: 1px solid var(--HEADER-COLOR);*/
+}
+
+#donate-panel a {
+    display: block;
+    width: 100%;
+    padding-right: 5vh;
+}
+
+#donate-panel a:any-link {
+    color: var(--HEADER-COLOR);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#donate-panel a:hover,
+#donate-panel a:focus {
+    transform: scale(1.2);
+    transition: all 0.3s;
+}
+
+@media screen and (min-width: 768px) {
+    #donate-panel {
+        display: block;
+    }
+
+    #donate-panel ul {
+        flex-flow: row nowrap;
+        flex-direction:row-reverse;
+        /*border-top: 1px solid var(--HEADER-COLOR);*/
+    }
+
+    #donate-panel li {
+        border-top: none;
+    }
+
+    header:focus-within #donate-panel {
+        animation: none;
+    }
+}
+
+.lang-header {
+  font-size: 1.5vh;
+  text-align: center;
+  position: absolute;
+  top: 0vh;
+  right: 0vh;
+  width: 8.5vh;
+  height: 2.8vh;
+  cursor: pointer;
+}
+
+.custom-select{   
+  display: none; 
+}
+
+#a{
+  padding-left: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 0vh;
+}
+
+#a img, .btn-select img{
+  margin-top: 2.5vh;
+  margin-bottom: 0px;
+  height: 2.7vh;
+}
+
+#a li{
+  list-style: none;
+  padding-top: 0px;
+  padding-bottom: 0.7vh;
+}
+
+#a li:hover{
+ background-color: #F4F3F3;
+}
+
+#a li img{
+  margin-top: 1.3vh;
+}
+
+#a li span{
+  position: relative;
+  top: 0.67vh;
+  margin-left: 0.5vh;
+}
+
+.btn-select li span{
+  position: relative;
+  top: 1.375vh;
+  margin-left: 0.5vh;
+}
+
+/* item list */
+
+.b{
+  display: none;
+  width: 100%;
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 5px;
+}
+
+.open{
+  display: show !important;
+}
+
+.btn-select{
+  width: 100%;
+  background-color: rgba(0,0,0,0);
+  border: 0px;
+  padding-bottom: 0.5vh;
+  cursor: pointer;
+}
+.btn-select li{
+  list-style: none;
+  float: center;
+  padding-bottom: 0px;
+}
+
+.btn-select:hover li{
+  margin-left: 0px;
+}
+
+.btn-select:hover{
+  /*background-color: #F4F3F3;*/
+  border: 0px;
+}
+
+.btn-select:focus{
+   outline:none;
+}
+
+.lang-select {
+  margin-left: 0px;
+}
+
+.header
+{
+  width: 100%; 
+  margin-bottom: 2.8%;
+}
+
+.text 
+{
+  width: 99%;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+}
+
+.values
+{
+  display: flex;
+}
+
+
+.button-value
+{
+  background-color:#0090a0
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1
+}
+
+</style>
+</head>
+<body>
+<section>
+  <p><a href="index.html" class="clip">PrudentGames</a></p>
+</section>
+
+<div id="page-header">
+<div class="lang-header">
+<select class="custom-select">
+            <option value="de" data-thumbnail="img/DE.png">DE</option>
+            <option value="en" data-thumbnail="img/GB.png">EN</option>
+            <option value="ua" data-thumbnail="img/UA.png">UA</option>
+      </select>
+
+<div class="lang-select">
+<button class="btn-select" value=""></button>
+<div class="b">
+<ul id="a"></ul>
+</div>
+</div>
+</div>
+
+<div id="donate-panel">
+  <ul>
+      <li><a href="contact.html" id="contact">Contact</a></li>
+      <li><a href="donate.html" id="donate">Donate</a></li>
+  </ul>
+</div>
+</div>
+
+<div class="header">
+<div class="text"></div>
+</div>
+
+<div class="values">
+  <button class="button-value" id="button-value1" onclick="donatevalue()">1$</button>
+  <button class="button-value" id="button-value2" onclick="donatevalue()">2$</button>
+  <button class="button-value" id="button-value5" onclick="donatevalue()">5$</button>
+</div> 
+
+<form action="https://www.paypal.com/donate" method="post" id="paypalform" target="_blank" style="height: 5vh;">
+ <!-- Identify your business so that you can collect the payments. -->
+ <input type="hidden" name="business" value="pveugeny@gmail.com">
+ <!-- Specify details about the contribution -->
+ <input type="hidden" name="no_recurring" value="0">
+ <input type="hidden" name="item_name" value="prudentgames">
+ <input name="amount" id="amount_paypal" value="1.00" min="0" max="100" type="number" style="height: 5vh; text-align: center;">
+ <input type="hidden" name="currency_code" value="USD">
+ <!-- Display the payment button. -->
+ <input type="image" name="submit" id="submit_paypal" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="Donate" onclick="paypaldonate()" style="position: relative; top:1vh; left: 0vw; height: 4vh">
+ <img alt="" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+</form>
+
+<div id="container" style="width: 160px;"></div>
+
+<script async
+  src="https://pay.google.com/gp/p/js/pay.js"
+  onload="onGooglePayLoaded()"></script>
+<script type="text/javascript">
+function paypaldonate()
+{
+  var myform = document.getElementById('paypalform');
+  myform.onsubmit = function()
+  {
+    //document.getElementById('amount_paypal').value = '2';
+    myform.submit();
+  };
+}
+
+/*
+ * Define the version of the Google Pay API referenced when creating your
+ * configuration
+ * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#PaymentDataRequest|apiVersion in PaymentDataRequest}
+ */
+const baseRequest = {
+  apiVersion: 2,
+  apiVersionMinor: 0
+};
+
+/*
+ * Card networks supported by your site and your gateway
+ * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#CardParameters|CardParameters}
+ * @todo confirm card networks supported by your site and gateway
+ */
+const allowedCardNetworks = ["AMEX", "DISCOVER", "INTERAC", "JCB", "MASTERCARD", "VISA"];
+
+/*
+ * Card authentication methods supported by your site and your gateway
+ * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#CardParameters|CardParameters}
+ * @todo confirm your processor supports Android device tokens for your
+ * supported card networks
+ */
+const allowedCardAuthMethods = ["PAN_ONLY", "CRYPTOGRAM_3DS"];
+
+/*
+ * Identify your gateway and your site's gateway merchant identifier
+ *
+ * The Google Pay API response will return an encrypted payment method capable
+ * of being charged by a supported gateway after payer authorization
+ * @todo check with your gateway on the parameters to pass
+ * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#gateway|PaymentMethodTokenizationSpecification}
+ */
+const tokenizationSpecification = {
+  type: 'PAYMENT_GATEWAY',
+  parameters: {
+    'gateway': 'example',
+    'gatewayMerchantId': 'exampleGatewayMerchantId'
+  }
+};
+
+/*
+ * Describe your site's support for the CARD payment method and its required
+ * fields
+ *
+ * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#CardParameters|CardParameters}
+ */
+const baseCardPaymentMethod = {
+  type: 'CARD',
+  parameters: {
+    allowedAuthMethods: allowedCardAuthMethods,
+    allowedCardNetworks: allowedCardNetworks
+  }
+};
+
+/*
+ * Describe your site's support for the CARD payment method including optional
+ * fields
+ * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#CardParameters|CardParameters}
+ */
+const cardPaymentMethod = Object.assign(
+  {},
+  baseCardPaymentMethod,
+  {
+    tokenizationSpecification: tokenizationSpecification
+  }
+);
+
+/*
+ * An initialized google.payments.api.PaymentsClient object or null if not yet set
+ * @see {@link getGooglePaymentsClient}
+ */
+let paymentsClient = null;
+
+/*
+ * Configure your site's support for payment methods supported by the Google Pay
+ * API.
+ * Each member of allowedPaymentMethods should contain only the required fields,
+ * allowing reuse of this base request when determining a viewer's ability
+ * to pay and later requesting a supported payment method
+ * @returns {object} Google Pay API version, payment methods supported by the site
+ */
+function getGoogleIsReadyToPayRequest() {
+  return Object.assign(
+      {},
+      baseRequest,
+      {
+        allowedPaymentMethods: [baseCardPaymentMethod]
+      }
+  );
+}
+
+/*
+ * Configure support for the Google Pay API
+ * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#PaymentDataRequest|PaymentDataRequest}
+ * @returns {object} PaymentDataRequest fields
+ */
+function getGooglePaymentDataRequest() {
+  const paymentDataRequest = Object.assign({}, baseRequest);
+  paymentDataRequest.allowedPaymentMethods = [cardPaymentMethod];
+  paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
+  paymentDataRequest.merchantInfo = {
+    // @todo a merchant ID is available for a production environment after approval by Google
+    // See {@link https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist|Integration checklist}
+    // merchantId: '01234567890123456789',
+    merchantName: 'Example Merchant'
+  };
+  return paymentDataRequest;
+}
+
+/*
+ * Return an active PaymentsClient or initialize
+ * @see {@link https://developers.google.com/pay/api/web/reference/client#PaymentsClient|PaymentsClient constructor}
+ * @returns {google.payments.api.PaymentsClient} Google Pay API client
+ */
+function getGooglePaymentsClient() {
+  if ( paymentsClient === null ) {
+    paymentsClient = new google.payments.api.PaymentsClient({environment: 'TEST'});
+  }
+  return paymentsClient;
+}
+
+/*
+ * Initialize Google PaymentsClient after Google-hosted JavaScript has loaded
+ * Display a Google Pay payment button after confirmation of the viewer's
+ * ability to pay.
+ */
+function onGooglePayLoaded() {
+  const paymentsClient = getGooglePaymentsClient();
+  paymentsClient.isReadyToPay(getGoogleIsReadyToPayRequest())
+      .then(function(response) {
+        if (response.result) {
+          addGooglePayButton();
+          // @todo prefetch payment data to improve performance after confirming site functionality
+          // prefetchGooglePaymentData();
+        } else {
+        	console.log('Not ready to pay');
+        }
+      })
+      .catch(function(err) {
+        // show error in developer console for debugging
+        console.error(err);
+      });
+}
+
+/*
+ * Add a Google Pay purchase button alongside an existing checkout button
+ * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#ButtonOptions|Button options}
+ * @see {@link https://developers.google.com/pay/api/web/guides/brand-guidelines|Google Pay brand guidelines}
+ */
+function addGooglePayButton() {
+  const paymentsClient = getGooglePaymentsClient();
+  const button =
+      paymentsClient.createButton(
+      {
+        onClick: onGooglePaymentButtonClicked,
+        buttonType: 'donate',
+        buttonSizeMode: 'fill',
+      });
+  refreshsize();
+  document.getElementById('container').appendChild(button);
+}
+
+function refreshsize() {
+  var min = 280, max = 800;
+  var clientWidth = document.documentElement.clientWidth;
+  var w = clientWidth*0.12;
+  if(w<min) w = min;
+  if(w>max) w = max;
+  document.getElementById('container').style.width = w.toString() + "px";
+  document.getElementById('amount_paypal').style.width = String(2*w/3) + "px";
+  document.getElementById('submit_paypal').style.width = String(w/3) + "px";
+  document.getElementById('paypalform').style.marginLeft = "calc(50vw - " + String(w/2) + "px)";
+  document.getElementById('container').style.marginLeft = "calc(50vw - " + String(w/2) + "px)";
+  document.getElementsByClassName("values")[0].style.marginLeft = "calc(50vw - " + String(w/2) + "px)";
+  var values = document.getElementsByClassName("button-value");  
+  for (var i = 0; i < 3; i++) 
+  {
+    values[i].style.width = String(w/3) + "px";
+  }
+}
+
+/*
+ * Provide Google Pay API with a payment amount, currency, and amount status
+ * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#TransactionInfo|TransactionInfo}
+ * @returns {object} transaction info, suitable for use as transactionInfo property of PaymentDataRequest
+ */
+function getGoogleTransactionInfo() {
+  return {
+    countryCode: 'US',
+    currencyCode: 'USD',
+    totalPriceStatus: 'FINAL',
+    // set to cart total
+    totalPrice: '1.00'
+  };
+}
+
+/*
+ * Prefetch payment data to improve performance
+ * @see {@link https://developers.google.com/pay/api/web/reference/client#prefetchPaymentData|prefetchPaymentData()}
+ */
+function prefetchGooglePaymentData() {
+  const paymentDataRequest = getGooglePaymentDataRequest();
+  // transactionInfo must be set but does not affect cache
+  paymentDataRequest.transactionInfo = {
+    totalPriceStatus: 'NOT_CURRENTLY_KNOWN',
+    currencyCode: 'USD'
+  };
+  const paymentsClient = getGooglePaymentsClient();
+  paymentsClient.prefetchPaymentData(paymentDataRequest);
+}
+
+/**
+ * Show Google Pay payment sheet when Google Pay payment button is clicked
+ */
+function onGooglePaymentButtonClicked() {
+  const paymentDataRequest = getGooglePaymentDataRequest();
+  paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
+
+  const paymentsClient = getGooglePaymentsClient();
+  paymentsClient.loadPaymentData(paymentDataRequest)
+      .then(function(paymentData) {
+        // handle the response
+        processPayment(paymentData);
+      })
+      .catch(function(err) {
+        // show error in developer console for debugging
+        console.error(err);
+      });
+}
+
+/*
+ * Process payment data returned by the Google Pay API
+ * @param {object} paymentData response from Google Pay API after user approves payment
+ * @see {@link https://developers.google.com/pay/api/web/reference/response-objects#PaymentData|PaymentData object reference}
+ */
+function processPayment(paymentData) {
+  // show returned data in developer console for debugging
+    console.log(paymentData);
+  // @todo pass payment token to your gateway to process payment
+  paymentToken = paymentData.paymentMethodData.tokenizationData.token;
+}
+
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+var currentlang = "";
+const languages = [];
+languages.push("de", "en", "ua");
+var dict = new Object();
+dict["de"] = {};
+dict["de"]["donate"] = "Spenden";
+dict["de"]["contact"] = "Kontaktieren";
+dict["en"] = {};
+dict["en"]["donate"] = "Donate";
+dict["en"]["contact"] = "Contact";
+dict["ua"] = {};
+dict["ua"]["donate"] = "Пожертвувати";
+dict["ua"]["contact"] = "Зв'язатися";
+var langArray = [];
+var langVal = [];
+$('.custom-select option').each(function(){
+  var img = $(this).attr("data-thumbnail");
+  var text = this.innerText;
+  var value = $(this).val();
+  var item = '<li><img src="'+ img +'" alt="" value="'+value+'"/><span>'+ text +'</span></li>';
+  langArray.push(item);
+  langVal.push(value);
+})
+
+$('#a').html(langArray);
+
+checkCookie();
+
+//change button stuff on click
+$('#a li').click(function(){
+   var img = $(this).find('img').attr("src");
+   var value = $(this).find('img').attr('value');
+   var text = this.innerText;
+   var item = '<li><img src="'+ img +'" alt="" /><span>'+ text +'</span></li>';
+  $('.btn-select').html(item);
+  $('.btn-select').attr('value', value);
+  $(".b").toggle();
+  //console.log(value);
+  setCookie("language", value, 365);
+  setLanguage(value);
+});
+
+$(".btn-select").click(function(){
+        $(".b").toggle();
+    });
+
+//check local storage for the lang
+var sessionLang = localStorage.getItem('lang');
+if (sessionLang){
+  //find an item with value of sessionLang
+  var langIndex = langArray.indexOf(sessionLang);
+  $('.btn-select').html(langArray[langIndex]);
+  $('.btn-select').attr('value', sessionLang);
+} else {
+   var langIndex = langArray.indexOf('ch');
+  console.log(langIndex);
+  $('.btn-select').html(langArray[langIndex]);
+  //$('.btn-select').attr('value', 'en');
+}  
+
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  let expires = "expires="+d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function setLanguage(lang) {
+  //alert(dict[lang]["donate"]);
+  currentlang = lang;
+  document.getElementById("donate").innerHTML = dict[lang]["donate"];
+  document.getElementById("contact").innerHTML = dict[lang]["contact"];
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let ca = document.cookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkCookie() {
+  let lang = getCookie("language");
+  if (lang == "") 
+  {
+    //Set the button value to the first el of the array
+    lang = langVal[1];
+    $('.btn-select').html(langArray[1]);
+    $('.btn-select').attr(lang);
+    setCookie("language", lang, 365);
+    setLanguage(lang);
+    return;
+  }
+  for (let i = 0; i < langVal.length; i++) 
+  {
+    if(lang != langVal[i]) continue;
+    $('.btn-select').html(langArray[i]);
+    $('.btn-select').attr(langVal[i]);
+    setLanguage(langVal[i]);
+    break;
+  }
+}
+
+(function(console){
+
+    console.save = function(data, filename){
+
+        if(!data) {
+            console.error('Console.save: No data')
+            return;
+        }
+
+        if(!filename) filename = 'console.json'
+
+        if(typeof data === "object"){
+            data = JSON.stringify(data, undefined, 4)
+        }
+
+        var blob = new Blob([data], {type: 'text/json'}),
+            e    = document.createEvent('MouseEvents'),
+            a    = document.createElement('a')
+
+        a.download = filename
+        a.href = window.URL.createObjectURL(blob)
+        a.dataset.downloadurl =  ['text/json', a.download, a.href].join(':')
+        e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
+        a.dispatchEvent(e)
+    }
+})(console);
+
+window.addEventListener('resize', function() {
+  refreshsize();
+});
+
+window.addEventListener('load', function() {
+  refreshsize();
+});
+
+</script>
+
+</body>
+</html>
