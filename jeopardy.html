@@ -3,6 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
+<script>
+  var href = new Object();
+  href["de"] = {};href["en"] = {};href["ua"] = {};
+  href["de"]["links"] = [
+    "https://mega.nz/file/dCRihJKB#_V11QKUQTYqZ9vnqmsgDNVkVqGrqYd8GAFCOt-eIIpY",
+    "javascript:;",
+    "javascript:;",
+    "javascript:;",
+    "javascript:;"];
+  href["en"]["links"] = [
+    "https://mega.nz/file/QWQQwBrJ#oO_2IbmvlAJpZxesrDuBg_uhVwdt2FveVCGkyG3Goq8",
+    "javascript:;",
+    "javascript:;",
+    "javascript:;",
+    "javascript:;"];
+  href["ua"]["links"] = [
+    "https://mega.nz/file/QTZBjJIA#xogySek823HO6_hYN4YxIpLBApSYD-IEY3abtnH2OCw",
+    "javascript:;",
+    "javascript:;",
+    "javascript:;",
+    "javascript:;"];
+</script>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
 <style>
 @import url('https://fonts.cdnfonts.com/css/chalkduster');
@@ -380,7 +402,7 @@ dict["de"]["text"] = "ersten - erwahlt 5 themas. Durch tippen im kartenen mit an
 dict["en"]["title"] = "jeopardy";
 dict["en"]["text"] = "First - choose 5 themes. By tapping in the card with a number of points - the question will be opened. By clicking in the escape button or mouse button, or tapping in freely area - the question will be closed. Whether tapping in question or clicking in the return button or space button - the answers will opened";
 dict["ua"]["title"] = "jeopardy";
-dict["ua"]["text"] = "обираєте 5 тем. При кліканні на карточці з числом очок - відкриватиметься запитання. При натисканні Escape або кнопки миші, або на вільній області екрану тачскріном - запитання закриється. Якщо нажати Enter або пробіл, або нажати тачскріном на саме запитання  -  відкриється відповідь на запитання";
+dict["ua"]["text"] = "на першому кроці - вибір 5 тем. При кліканні на карточці з числом очок - відкриватиметься запитання. При натисканні Escape або кнопки миші, або на вільній області екрану тачскріном - запитання закриється. Якщо нажати Enter або пробіл, або нажати тачскріном на саме запитання  -  відкриється відповідь на запитання";
 var langArray = [];
 var langVal = [];
 $('.custom-select option').each(function(){
@@ -394,19 +416,22 @@ $('.custom-select option').each(function(){
 
 $('#a').html(langArray);
 
-var links = document.getElementsByClassName("links");
-for (var i = 0; i < links.length; i++) 
-{
-  links[i].innerHTML = "<div class='links-header'></div>"
-    + "<div class='links-images'>"
-    + "<a href='#'><img class='links-windows' src='img/windows.png'></a>"
-    + "<a href='#'><img class='links-mac' src='img/mac.png'></a>"
-    + "<a href='#'><img class='links-ios' src='img/ios.png'></a>" 
-    + "<a href='#'><img class='links-linux' src='img/linux.png'></a>"
-    + "<a href='#'><img class='links-android' src='img/android.png'></a>" 
-    + "</div>";
-}
 checkCookie();
+function setLinks() 
+{
+  var links = document.getElementsByClassName("links");
+  for (var i = 0; i < links.length; i++) 
+  {
+    links[i].innerHTML = "<div class='links-header'></div>"
+      + "<div class='links-images'>"
+      + "<a href='" + href[currentlang]["links"][0] + "' target='_blank'><img class='links-windows' src='img/windows.png'></a>"
+      + "<a href='" + href[currentlang]["links"][1] + "' target='_blank'><img class='links-mac' src='img/mac.png'></a>"
+      + "<a href='" + href[currentlang]["links"][2] + "' target='_blank'><img class='links-ios' src='img/ios.png'></a>" 
+      + "<a href='" + href[currentlang]["links"][3] + "' target='_blank'><img class='links-linux' src='img/linux.png'></a>"
+      + "<a href='" + href[currentlang]["links"][4] + "' target='_blank'><img class='links-android' src='img/android.png'></a>" 
+      + "</div>";
+  }
+}
 
 //change button stuff on click
 $('#a li').click(function(){
@@ -449,10 +474,10 @@ function setCookie(cname, cvalue, exdays) {
 
 function setLanguage(lang) {
   currentlang = lang;
+  setLinks();
   document.getElementById("donate").innerHTML = dict[lang]["donate"];
   document.getElementById("contact").innerHTML = dict[lang]["contact"];
   var headers = document.getElementsByClassName("header");
-  var images = document.getElementsByClassName("image");
   var texts = document.getElementsByClassName("text");
   var linksheaders = document.getElementsByClassName("links-header");
   for (var i = 0; i < texts.length; i++) 
@@ -469,10 +494,6 @@ function setLanguage(lang) {
     {
       headers[i].style.fontFamily = "'Tellural', sans-serif";
       texts[i].style.fontFamily = "'Tellural', sans-serif";
-    }
-    if(dict[lang]["img"] !== undefined)
-    {
-      images[i].src = dict[lang]["img"];
     }
     break;
   }

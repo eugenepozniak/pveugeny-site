@@ -3,6 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
+<script>
+  var href = new Object();
+  href["de"] = {};href["en"] = {};href["ua"] = {};
+  href["de"]["links"] = [
+    "https://mega.nz/file/IPpiVQ6D#kJoZv9u3PcAmqXQGHZ9NcqYXouLNkLmZYSVMdC8W4rQ",
+    "javascript:;",
+    "javascript:;",
+    "javascript:;",
+    "javascript:;"];
+  href["en"]["links"] = [
+    "https://mega.nz/file/8GwCyDDB#KxyL8RnFY6On_--TgMW53sIOaUMy0ztgnioRvdTqv9Y",
+    "javascript:;",
+    "javascript:;",
+    "javascript:;",
+    "javascript:;"];
+  href["ua"]["links"] = [
+    "https://mega.nz/file/VexjlJSD#dILeXC6YFf1l_MiGWSMEsXmx7O46OgW35arLWvGcPB0",
+    "javascript:;",
+    "javascript:;",
+    "javascript:;",
+    "javascript:;"];
+</script>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
 <style>
 @import url('https://fonts.cdnfonts.com/css/chalkduster');
@@ -394,19 +416,22 @@ $('.custom-select option').each(function(){
 
 $('#a').html(langArray);
 
-var links = document.getElementsByClassName("links");
-for (var i = 0; i < links.length; i++) 
-{
-  links[i].innerHTML = "<div class='links-header'></div>"
-    + "<div class='links-images'>"
-    + "<a href='#'><img class='links-windows' src='img/windows.png'></a>"
-    + "<a href='#'><img class='links-mac' src='img/mac.png'></a>"
-    + "<a href='#'><img class='links-ios' src='img/ios.png'></a>" 
-    + "<a href='#'><img class='links-linux' src='img/linux.png'></a>"
-    + "<a href='#'><img class='links-android' src='img/android.png'></a>" 
-    + "</div>";
-}
 checkCookie();
+function setLinks() 
+{
+  var links = document.getElementsByClassName("links");
+  for (var i = 0; i < links.length; i++) 
+  {
+    links[i].innerHTML = "<div class='links-header'></div>"
+      + "<div class='links-images'>"
+      + "<a href='" + href[currentlang]["links"][0] + "' target='_blank'><img class='links-windows' src='img/windows.png'></a>"
+      + "<a href='" + href[currentlang]["links"][1] + "' target='_blank'><img class='links-mac' src='img/mac.png'></a>"
+      + "<a href='" + href[currentlang]["links"][2] + "' target='_blank'><img class='links-ios' src='img/ios.png'></a>" 
+      + "<a href='" + href[currentlang]["links"][3] + "' target='_blank'><img class='links-linux' src='img/linux.png'></a>"
+      + "<a href='" + href[currentlang]["links"][4] + "' target='_blank'><img class='links-android' src='img/android.png'></a>" 
+      + "</div>";
+  }
+}
 
 //change button stuff on click
 $('#a li').click(function(){
@@ -449,6 +474,7 @@ function setCookie(cname, cvalue, exdays) {
 
 function setLanguage(lang) {
   currentlang = lang;
+  setLinks();
   document.getElementById("donate").innerHTML = dict[lang]["donate"];
   document.getElementById("contact").innerHTML = dict[lang]["contact"];
   var headers = document.getElementsByClassName("header");
@@ -466,8 +492,8 @@ function setLanguage(lang) {
     }
     if(lang == "ua") 
     {
-      headers[i].style.fontFamily = "Tellural";
-      texts[i].style.fontFamily = "Tellural";
+      headers[i].style.fontFamily = "'Tellural', sans-serif";
+      texts[i].style.fontFamily = "'Tellural', sans-serif";
     }
     break;
   }
