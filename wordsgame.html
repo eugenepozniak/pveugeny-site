@@ -3,6 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
+<script>
+  var href = new Object();
+  href["de"] = {};href["en"] = {};href["ua"] = {};
+  href["de"]["links"] = [
+"https://mega.nz/file/sTB2UboD#IT2BZe7Z6WDOS6Gb0SmxKUSjf_-E5svZMWDKO4hxibY",
+    "javascript:;",
+    "javascript:;",
+    "javascript:;",
+    "javascript:;"];
+  href["en"]["links"] = [
+"https://mega.nz/file/IGhzBC4D#vK_4jLVczICwrP-6XHwoCkmSeniOdb_z_GdZZDQmHVs",
+    "javascript:;",
+    "javascript:;",
+    "javascript:;",
+    "javascript:;"];
+  href["ua"]["links"] = [
+"https://mega.nz/file/1b4D0RDB#j1f5nULR_mf_aXOLQL8lAuyAOJeIh0tZAvHewzcRCmo",
+    "javascript:;",
+    "javascript:;",
+    "javascript:;",
+    "javascript:;"];
+</script>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
 <style>
 @import url('https://fonts.cdnfonts.com/css/chalkduster');
@@ -375,6 +397,9 @@ dict["ua"]["contact"] = "Зв'язатися";
 dict["de"]["links-header"] = "Herunterladen";
 dict["en"]["links-header"] = "Links";
 dict["ua"]["links-header"] = "Посилання";
+dict["de"]["link"] = "";
+dict["en"]["link"] = "";
+dict["ua"]["link"] = "";
 dict["de"]["title"] = "Wörter spiel";
 dict["de"]["text"] = "Durch bilder auf der Folie definieren Sie das Wort - die zeichen werden darunter in der zufälligen ordnen angezeigt. Der wort gezeigten kann sein durch klicken oder tippen darauf";
 dict["en"]["title"] = "Words game";
@@ -394,19 +419,22 @@ $('.custom-select option').each(function(){
 
 $('#a').html(langArray);
 
-var links = document.getElementsByClassName("links");
-for (var i = 0; i < links.length; i++) 
-{
-  links[i].innerHTML = "<div class='links-header'></div>"
-    + "<div class='links-images'>"
-    + "<img class='links-windows' src='img/windows.png'>"
-    + "<img class='links-mac' src='img/mac.png'>"
-    + "<img class='links-ios' src='img/ios.png'>" 
-    + "<img class='links-linux' src='img/linux.png'>"
-    + "<img class='links-android' src='img/android.png'>" 
-    + "</div>";
-}
 checkCookie();
+function setLinks() 
+{
+  var links = document.getElementsByClassName("links");
+  for (var i = 0; i < links.length; i++) 
+  {
+    links[i].innerHTML = "<div class='links-header'></div>"
+      + "<div class='links-images'>"
+      + "<a href='" + href[currentlang]["links"][0] + "' target='_blank'><img class='links-windows' src='img/windows.png'></a>"
+      + "<a href='" + href[currentlang]["links"][1] + "' target='_blank'><img class='links-mac' src='img/mac.png'></a>"
+      + "<a href='" + href[currentlang]["links"][2] + "' target='_blank'><img class='links-ios' src='img/ios.png'></a>" 
+      + "<a href='" + href[currentlang]["links"][3] + "' target='_blank'><img class='links-linux' src='img/linux.png'></a>"
+      + "<a href='" + href[currentlang]["links"][4] + "' target='_blank'><img class='links-android' src='img/android.png'></a>" 
+      + "</div>";
+  }
+}
 
 //change button stuff on click
 $('#a li').click(function(){
@@ -449,6 +477,7 @@ function setCookie(cname, cvalue, exdays) {
 
 function setLanguage(lang) {
   currentlang = lang;
+  setLinks();
   document.getElementById("donate").innerHTML = dict[lang]["donate"];
   document.getElementById("contact").innerHTML = dict[lang]["contact"];
   var headers = document.getElementsByClassName("header");
