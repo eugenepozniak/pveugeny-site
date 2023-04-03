@@ -3,27 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
-<script>
-  var href = new Object();
-  href["de"] = {};href["en"] = {};href["ua"] = {};
-  href["de"]["links"] = [   "https://mega.nz/#!AXR1WDAL!XR0HY_CZxTdtq4-Cc2QffwObE_dLVWHmTr30PJ1wn6w",
-    "https://mega.nz/#!YHpjhDha!--Ja8uNgdyROrX6v7WE3xYimZXw8AP6PegZsbfJBve0",
-"https://mega.nz/#!tWAESQKA!WpklJOzOriZMFeQcVUKlzklhDkmHk5PEJkBxRJovbjY",
-    "javascript:;",
-    "javascript:;"];
-  href["en"]["links"] = [
-"https://mega.nz/#!RPBWyJxI!ivMd5zmsAjNLRg9SaL5f_b8M9Hcyf-mLQDSGQADlYK8",
-    "https://mega.nz/#!hPACBaKD!XMOD8Jr6dAaSnmEujYh9GLHmDLk0VLlLH5sNqYKjOrU",
-"https://mega.nz/#!tWAESQKA!WpklJOzOriZMFeQcVUKlzklhDkmHk5PEJkBxRJovbjY",
-    "javascript:;",
-    "javascript:;"];
-  href["ua"]["links"] = [
-"https://mega.nz/#!0Shh3LBZ!8CJ_bxCCXu7dYJjUnfceR1GMu4WxhN1lrhWHvMGblFM",
-    "https://mega.nz/#!BTZG0IjA!pMkcv7NxPPe2JMUJTtEGmgZkSb3poaGDgLKRklVi1zo",
-"https://mega.nz/#!tWAESQKA!WpklJOzOriZMFeQcVUKlzklhDkmHk5PEJkBxRJovbjY",
-    "javascript:;",
-    "javascript:;"];
-</script>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
 <style>
 @import url('https://fonts.cdnfonts.com/css/chalkduster');
@@ -321,12 +300,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.links-images img {
-  height: 12vh;
-  cursor: pointer;
-  left:50%;
+  height: 9.7vh;
 }
 
 .herunterladen {border-bottom: inherit;}  
@@ -373,7 +347,7 @@ header {
 
 <div class="new">
 <div class="header"></div>
-<img class="image" src="img/jeopardy.png">
+<img class="image" src="img/thegallileoconnection.png">
 <div class="text"></div>
 <div class="links"></div>
 </div>
@@ -396,12 +370,12 @@ dict["ua"]["contact"] = "Зв'язатися";
 dict["de"]["links-header"] = "Herunterladen";
 dict["en"]["links-header"] = "Links";
 dict["ua"]["links-header"] = "Посилання";
-dict["de"]["title"] = "jeopardy";
-dict["de"]["text"] = "ersten - erwahlt 5 themas. Durch tippen im kartenen mit anzahl von punkte - wird das fragte geöffnet. Denn durch klicken im Escape-Taste oder maustaste, oder tippen in frei bereich - der frage wird schließen sein. Ob tippen in frage oder klicken im Rückgabe-Taste oder Space-Taste - wird die Antwort geöffnen sein";
-dict["en"]["title"] = "jeopardy";
-dict["en"]["text"] = "First - choose 5 themes. By tapping in the card with a number of points - the question will be opened. By clicking in the escape button or mouse button, or tapping in freely area - the question will be closed. Whether tapping in question or clicking in the return button or space button - the answers will opened";
-dict["ua"]["title"] = "jeopardy";
-dict["ua"]["text"] = "на першому кроці - вибір 5 тем. При кліканні на карточці з числом очок - відкриватиметься запитання. При натисканні Escape або кнопки миші, або на вільній області екрану тачскріном - запитання закриється. Якщо нажати Enter або пробіл, або нажати тачскріном на саме запитання  -  відкриється відповідь на запитання";
+dict["de"]["title"] = "";
+dict["de"]["text"] = "";
+dict["en"]["title"] = "";
+dict["en"]["text"] = "it's no game, this book about >2000 years of investigation (explore) of solar system \"Gallileo Connection\"";
+dict["ua"]["title"] = "";
+dict["ua"]["text"] = "";
 var langArray = [];
 var langVal = [];
 $('.custom-select option').each(function(){
@@ -421,14 +395,7 @@ function setLinks()
   var links = document.getElementsByClassName("links");
   for (var i = 0; i < links.length; i++) 
   {
-    links[i].innerHTML = "<div class='links-header'></div>"
-      + "<div class='links-images'>"
-      + "<a href='" + href[currentlang]["links"][0] + "' target='_blank'><img class='links-windows' src='img/windows.png'></a>"
-      + "<a href='" + href[currentlang]["links"][1] + "' target='_blank'><img class='links-mac' src='img/mac.png'></a>"
-      + "<a href='" + href[currentlang]["links"][2] + "' target='_blank'><img class='links-ios' src='img/ios.png'></a>" 
-      + "<a href='" + href[currentlang]["links"][3] + "' target='_blank'><img class='links-linux' src='img/linux.png'></a>"
-      + "<a href='" + href[currentlang]["links"][4] + "' target='_blank'><img class='links-android' src='img/android.png'></a>" 
-      + "</div>";
+    links[i].innerHTML = "<a href='https://mega.nz/#!MLxHAbpA!2PlLuYHpats43nGTrYTWPVQpKNlA9o_twTdOkySvlE0' target='_blank'><div class='links-header'></div></a>";
   }
 }
 
