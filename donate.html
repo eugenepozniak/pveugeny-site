@@ -314,198 +314,100 @@ input[type=number]::-webkit-inner-spin-button {
  <!-- Specify details about the contribution -->
  <input type="hidden" name="no_recurring" value="0">
  <input type="hidden" name="item_name" value="prudentgames">
- <input name="amount" id="amount_paypal" value="1.00" min="0" max="100" type="number" style="height: 5vh; text-align: center;">
+ <input name="amount" id="geldamount" value="1.00" min="0" max="100" type="number" style="vertical-align: top; height: 3.96vh; margin-top: 0.53vh; text-align: center;">
  <input type="hidden" name="currency_code" value="USD">
  <!-- Display the payment button. -->
- <input type="image" name="submit" id="submit_paypal" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="Donate" onclick="paypaldonate()" style="position: relative; top:1vh; left: 0vw; height: 4vh">
+ <input type="image" name="submit" id="submit_paypal" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="Donate" onclick="paypaldonate()" style="position: relative; top:0vh; left: 0vw; margin-top: 0.26vh; height: 4.48vh">
  <img alt="" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
 </form>
 
-<div id="container" style="width: 160px;"></div>
+<style>
+#liqpayform {
+  height: 5vh;
+}
 
-<script async
-  src="https://pay.google.com/gp/p/js/pay.js"
-  onload="onGooglePayLoaded()"></script>
+#liqpaybutton {
+  border-width: 0 !important;
+  border-color: transparent;
+  display: inline-block !important;
+  text-align: center !important;
+  padding: 7px 20px !important;
+  color: #fff !important;
+  font-size: 2vh;
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+  cursor: pointer !important;
+  border-radius: 2px;
+  background-color: rgba(122,183,43);
+  height: 5vh;
+}
+
+#liqpayimage {
+  vertical-align: middle;
+  margin-right: 7;
+}
+
+#liqpayimagetext {
+  vertical-align: middle;
+  color: black;
+}
+</style>
+
+<form action="https://www.liqpay.ua/api/3/checkout" method="post" id="liqpayform" target="_blank" accept-charset="utf-8">
+<input type="hidden" name="data"/>
+<input type="hidden" name="signature"/>
+<button type="submit" id="liqpaybutton" onmouseover="this.style.opacity='0.5';" onmouseout="this.style.opacity='1';">
+<img id="liqpayimage" src="https://static.liqpay.ua/buttons/logo-small.png" alt="Pay button" name="btn_text"/>
+<span id="liqpayimagetext">liqpay</span>
+</button>
+</form>
+
 <script type="text/javascript">
+function sha1(msg){function rotate_left(n,s){var t4=(n<<s)|(n>>>(32-s));return t4;};function lsb_hex(val){var str='';var i;var vh;var vl;for(i=0;i<=6;i+=2){vh=(val>>>(i*4+4))&0x0f;vl=(val>>>(i*4))&0x0f;str+=vh.toString(16)+vl.toString(16);}
+return str;};function cvt_hex(val){var str='';var i;var v;for(i=7;i>=0;i--){v=(val>>>(i*4))&0x0f;str+=v.toString(16);}
+return str;};function Utf8Encode(string){string=string.replace(/\r\n/g,'\n');var utftext='';for(var n=0;n<string.length;n++){var c=string.charCodeAt(n);if(c<128){utftext+=String.fromCharCode(c);}
+else if((c>127)&&(c<2048)){utftext+=String.fromCharCode((c>>6)|192);utftext+=String.fromCharCode((c&63)|128);}
+else{utftext+=String.fromCharCode((c>>12)|224);utftext+=String.fromCharCode(((c>>6)&63)|128);utftext+=String.fromCharCode((c&63)|128);}}
+return utftext;};var blockstart;var i,j;var W=new Array(80);var H0=0x67452301;var H1=0xEFCDAB89;var H2=0x98BADCFE;var H3=0x10325476;var H4=0xC3D2E1F0;var A,B,C,D,E;var temp;msg=Utf8Encode(msg);var msg_len=msg.length;var word_array=new Array();for(i=0;i<msg_len-3;i+=4){j=msg.charCodeAt(i)<<24|msg.charCodeAt(i+1)<<16|msg.charCodeAt(i+2)<<8|msg.charCodeAt(i+3);word_array.push(j);}
+switch(msg_len % 4){case 0:i=0x080000000;break;case 1:i=msg.charCodeAt(msg_len-1)<<24|0x0800000;break;case 2:i=msg.charCodeAt(msg_len-2)<<24|msg.charCodeAt(msg_len-1)<<16|0x08000;break;case 3:i=msg.charCodeAt(msg_len-3)<<24|msg.charCodeAt(msg_len-2)<<16|msg.charCodeAt(msg_len-1)<<8|0x80;break;}
+word_array.push(i);while((word_array.length % 16)!=14)word_array.push(0);word_array.push(msg_len>>>29);word_array.push((msg_len<<3)&0x0ffffffff);for(blockstart=0;blockstart<word_array.length;blockstart+=16){for(i=0;i<16;i++)W[i]=word_array[blockstart+i];for(i=16;i<=79;i++)W[i]=rotate_left(W[i-3]^W[i-8]^W[i-14]^W[i-16],1);A=H0;B=H1;C=H2;D=H3;E=H4;for(i=0;i<=19;i++){temp=(rotate_left(A,5)+((B&C)|(~B&D))+E+W[i]+0x5A827999)&0x0ffffffff;E=D;D=C;C=rotate_left(B,30);B=A;A=temp;}
+for(i=20;i<=39;i++){temp=(rotate_left(A,5)+(B^C^D)+E+W[i]+0x6ED9EBA1)&0x0ffffffff;E=D;D=C;C=rotate_left(B,30);B=A;A=temp;}
+for(i=40;i<=59;i++){temp=(rotate_left(A,5)+((B&C)|(B&D)|(C&D))+E+W[i]+0x8F1BBCDC)&0x0ffffffff;E=D;D=C;C=rotate_left(B,30);B=A;A=temp;}
+for(i=60;i<=79;i++){temp=(rotate_left(A,5)+(B^C^D)+E+W[i]+0xCA62C1D6)&0x0ffffffff;E=D;D=C;C=rotate_left(B,30);B=A;A=temp;}
+H0=(H0+A)&0x0ffffffff;H1=(H1+B)&0x0ffffffff;H2=(H2+C)&0x0ffffffff;H3=(H3+D)&0x0ffffffff;H4=(H4+E)&0x0ffffffff;}
+var temp=cvt_hex(H0)+cvt_hex(H1)+cvt_hex(H2)+cvt_hex(H3)+cvt_hex(H4);return temp.toLowerCase();}
+
+var request = {
+  public_key: "sandbox_i66699407573",
+  version: 3,
+  action: "paydonate",
+  amount: 0,
+  currency: "USD",
+  description: "",
+  order_id: "000002"
+};
+
+const private_key = "sandbox_TvKeiKVjF567fDlV43zIDTiQILZlqmpSgANxHA6b";
+
+function hexdec(hexString) {
+    hexString = (hexString + '').replace(/[^a-f0-9]/gi, '')
+    return parseInt(hexString, 16)
+}
+
+function hex2bin(hexSource) {
+    var bin = '';
+    for (var i=0;i<hexSource.length;i=i+2) {
+        bin += String.fromCharCode(hexdec(hexSource.substr(i,2)));
+    }
+    return bin;
+}
+
 function donatevalue(obj)
 {
-  var input = document.getElementById('amount_paypal');
+  var input = document.getElementById('geldamount');
   if(obj.id == "button-value1") input.value = "1.00";
   if(obj.id == "button-value2") input.value = "2.00";
   if(obj.id == "button-value5") input.value = "5.00";
-}
-
-function paypaldonate()
-{
-  var myform = document.getElementById('paypalform');
-  myform.onsubmit = function()
-  {
-    //document.getElementById('amount_paypal').value = '2';
-    myform.submit();
-  };
-}
-
-/*
- * Define the version of the Google Pay API referenced when creating your
- * configuration
- * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#PaymentDataRequest|apiVersion in PaymentDataRequest}
- */
-const baseRequest = {
-  apiVersion: 2,
-  apiVersionMinor: 0
-};
-
-/*
- * Card networks supported by your site and your gateway
- * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#CardParameters|CardParameters}
- * @todo confirm card networks supported by your site and gateway
- */
-const allowedCardNetworks = ["AMEX", "DISCOVER", "INTERAC", "JCB", "MASTERCARD", "VISA"];
-
-/*
- * Card authentication methods supported by your site and your gateway
- * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#CardParameters|CardParameters}
- * @todo confirm your processor supports Android device tokens for your
- * supported card networks
- */
-const allowedCardAuthMethods = ["PAN_ONLY", "CRYPTOGRAM_3DS"];
-
-/*
- * Identify your gateway and your site's gateway merchant identifier
- *
- * The Google Pay API response will return an encrypted payment method capable
- * of being charged by a supported gateway after payer authorization
- * @todo check with your gateway on the parameters to pass
- * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#gateway|PaymentMethodTokenizationSpecification}
- */
-const tokenizationSpecification = {
-  type: 'PAYMENT_GATEWAY',
-  parameters: {
-    'gateway': 'example',
-    'gatewayMerchantId': 'exampleGatewayMerchantId'
-  }
-};
-
-/*
- * Describe your site's support for the CARD payment method and its required
- * fields
- *
- * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#CardParameters|CardParameters}
- */
-const baseCardPaymentMethod = {
-  type: 'CARD',
-  parameters: {
-    allowedAuthMethods: allowedCardAuthMethods,
-    allowedCardNetworks: allowedCardNetworks
-  }
-};
-
-/*
- * Describe your site's support for the CARD payment method including optional
- * fields
- * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#CardParameters|CardParameters}
- */
-const cardPaymentMethod = Object.assign(
-  {},
-  baseCardPaymentMethod,
-  {
-    tokenizationSpecification: tokenizationSpecification
-  }
-);
-
-/*
- * An initialized google.payments.api.PaymentsClient object or null if not yet set
- * @see {@link getGooglePaymentsClient}
- */
-let paymentsClient = null;
-
-/*
- * Configure your site's support for payment methods supported by the Google Pay
- * API.
- * Each member of allowedPaymentMethods should contain only the required fields,
- * allowing reuse of this base request when determining a viewer's ability
- * to pay and later requesting a supported payment method
- * @returns {object} Google Pay API version, payment methods supported by the site
- */
-function getGoogleIsReadyToPayRequest() {
-  return Object.assign(
-      {},
-      baseRequest,
-      {
-        allowedPaymentMethods: [baseCardPaymentMethod]
-      }
-  );
-}
-
-/*
- * Configure support for the Google Pay API
- * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#PaymentDataRequest|PaymentDataRequest}
- * @returns {object} PaymentDataRequest fields
- */
-function getGooglePaymentDataRequest() {
-  const paymentDataRequest = Object.assign({}, baseRequest);
-  paymentDataRequest.allowedPaymentMethods = [cardPaymentMethod];
-  paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
-  paymentDataRequest.merchantInfo = {
-    // @todo a merchant ID is available for a production environment after approval by Google
-    // See {@link https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist|Integration checklist}
-    // merchantId: '01234567890123456789',
-    merchantName: 'Example Merchant'
-  };
-  return paymentDataRequest;
-}
-
-/*
- * Return an active PaymentsClient or initialize
- * @see {@link https://developers.google.com/pay/api/web/reference/client#PaymentsClient|PaymentsClient constructor}
- * @returns {google.payments.api.PaymentsClient} Google Pay API client
- */
-function getGooglePaymentsClient() {
-  if ( paymentsClient === null ) {
-    paymentsClient = new google.payments.api.PaymentsClient({environment: 'TEST'});
-  }
-  return paymentsClient;
-}
-
-/*
- * Initialize Google PaymentsClient after Google-hosted JavaScript has loaded
- * Display a Google Pay payment button after confirmation of the viewer's
- * ability to pay.
- */
-function onGooglePayLoaded() {
-  const paymentsClient = getGooglePaymentsClient();
-  paymentsClient.isReadyToPay(getGoogleIsReadyToPayRequest())
-      .then(function(response) {
-        if (response.result) {
-          addGooglePayButton();
-          // @todo prefetch payment data to improve performance after confirming site functionality
-          // prefetchGooglePaymentData();
-        } else {
-        	console.log('Not ready to pay');
-        }
-      })
-      .catch(function(err) {
-        // show error in developer console for debugging
-        console.error(err);
-      });
-}
-
-/*
- * Add a Google Pay purchase button alongside an existing checkout button
- * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#ButtonOptions|Button options}
- * @see {@link https://developers.google.com/pay/api/web/guides/brand-guidelines|Google Pay brand guidelines}
- */
-function addGooglePayButton() {
-  const paymentsClient = getGooglePaymentsClient();
-  const button =
-      paymentsClient.createButton(
-      {
-        onClick: onGooglePaymentButtonClicked,
-        buttonType: 'donate',
-        buttonSizeMode: 'fill',
-      });
-  refreshsize();
-  document.getElementById('container').appendChild(button);
 }
 
 function refreshsize() {
@@ -514,11 +416,11 @@ function refreshsize() {
   var w = clientWidth*0.12;
   if(w<min) w = min;
   if(w>max) w = max;
-  document.getElementById('container').style.width = w.toString() + "px";
-  document.getElementById('amount_paypal').style.width = String(2*w/3) + "px";
+  document.getElementById('liqpaybutton').style.width = w.toString() + "px";
+  document.getElementById('geldamount').style.width = String(0.65*w) + "px";
   document.getElementById('submit_paypal').style.width = String(w/3) + "px";
   document.getElementById('paypalform').style.marginLeft = "calc(50vw - " + String(w/2) + "px)";
-  document.getElementById('container').style.marginLeft = "calc(50vw - " + String(w/2) + "px)";
+  document.getElementById('liqpaybutton').style.marginLeft = "calc(50vw - " + String(w/2) + "px)";
   document.getElementsByClassName("values")[0].style.marginLeft = "calc(50vw - " + String(w/2) + "px)";
   var values = document.getElementsByClassName("button-value");  
   for (var i = 0; i < 3; i++) 
@@ -527,69 +429,31 @@ function refreshsize() {
   }
 }
 
-/*
- * Provide Google Pay API with a payment amount, currency, and amount status
- * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#TransactionInfo|TransactionInfo}
- * @returns {object} transaction info, suitable for use as transactionInfo property of PaymentDataRequest
- */
-function getGoogleTransactionInfo() {
-  return {
-    countryCode: 'US',
-    currencyCode: 'USD',
-    totalPriceStatus: 'FINAL',
-    // set to cart total
-    totalPrice: '1.00'
-  };
+function paypaldonate(e)
+{
+  e.preventDefault();
+  var myform = document.getElementById('paypalform');
+  myform.submit();
 }
 
-/*
- * Prefetch payment data to improve performance
- * @see {@link https://developers.google.com/pay/api/web/reference/client#prefetchPaymentData|prefetchPaymentData()}
- */
-function prefetchGooglePaymentData() {
-  const paymentDataRequest = getGooglePaymentDataRequest();
-  // transactionInfo must be set but does not affect cache
-  paymentDataRequest.transactionInfo = {
-    totalPriceStatus: 'NOT_CURRENTLY_KNOWN',
-    currencyCode: 'USD'
-  };
-  const paymentsClient = getGooglePaymentsClient();
-  paymentsClient.prefetchPaymentData(paymentDataRequest);
-}
-
-/**
- * Show Google Pay payment sheet when Google Pay payment button is clicked
- */
-function onGooglePaymentButtonClicked() {
-  const paymentDataRequest = getGooglePaymentDataRequest();
-  paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
-
-  const paymentsClient = getGooglePaymentsClient();
-  paymentsClient.loadPaymentData(paymentDataRequest)
-      .then(function(paymentData) {
-        // handle the response
-        processPayment(paymentData);
-      })
-      .catch(function(err) {
-        // show error in developer console for debugging
-        console.error(err);
-      });
-}
-
-/*
- * Process payment data returned by the Google Pay API
- * @param {object} paymentData response from Google Pay API after user approves payment
- * @see {@link https://developers.google.com/pay/api/web/reference/response-objects#PaymentData|PaymentData object reference}
- */
-function processPayment(paymentData) {
-  // show returned data in developer console for debugging
-    console.log(paymentData);
-  // @todo pass payment token to your gateway to process payment
-  paymentToken = paymentData.paymentMethodData.tokenizationData.token;
-}
+document.getElementById('liqpaybutton').addEventListener('click', function(e) 
+{
+  e.preventDefault();
+  var myform = document.getElementById('liqpayform');
+  request.amount = Number(document.getElementById('geldamount').value);
+  request.order_id = String(Math.random());
+  var data = btoa(JSON.stringify(request));
+  var sign = private_key + data + private_key;
+  var hashedSignature = sha1(sign);
+  var signature = btoa(hex2bin(hashedSignature));
+  //console.save(signature,"test.txt");
+  myform.data.value = data;
+  myform.signature.value = signature;
+  myform.submit();
+  return true;
+});
 
 </script>
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
@@ -641,7 +505,7 @@ $('#a li').click(function(){
 $(".btn-select").click(function(){
         $(".b").toggle();
     });
-
+    
 //check local storage for the lang
 var sessionLang = localStorage.getItem('lang');
 if (sessionLang){
